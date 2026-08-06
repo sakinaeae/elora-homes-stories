@@ -1,0 +1,170 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
+import { ActionButton } from "@/components/ActionLink";
+import { brand } from "@/lib/brand";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact — Elora Homes Bengaluru" },
+      {
+        name: "description",
+        content:
+          "Speak with Elora Homes about a stay in Bengaluru. Email elorahomesinn@gmail.com, call 9916120726, or send an enquiry.",
+      },
+      { property: "og:title", content: "Contact Elora Homes" },
+      {
+        property: "og:description",
+        content: "Enquire about availability, longer stays or hosting with Elora Homes, Bengaluru.",
+      },
+    ],
+  }),
+  component: ContactPage,
+});
+
+const fieldClass =
+  "w-full border-b border-border bg-transparent py-4 text-sm font-light text-foreground placeholder:text-muted-foreground/70 focus:border-gold focus:outline-none transition-colors duration-500";
+
+function ContactPage() {
+  return (
+    <>
+      <section className="mx-auto max-w-7xl px-6 pt-40 pb-20 md:px-10 md:pt-56 md:pb-28 lg:px-16">
+        <Reveal>
+          <p className="eyebrow text-gold">Contact</p>
+          <h1 className="mt-8 max-w-3xl text-[clamp(2.5rem,6vw,5rem)] leading-[1.04] text-forest">
+            We would love to host you.
+          </h1>
+          <p className="mt-8 max-w-md text-sm leading-[1.9] font-light text-muted-foreground">
+            Tell us your dates and what you have in mind. We reply personally, usually within the day.
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-20 px-6 pb-28 md:grid-cols-[1fr_1.2fr] md:px-10 md:pb-40 lg:gap-32 lg:px-16">
+        <Reveal>
+          <dl className="space-y-12">
+            <div>
+              <dt className="eyebrow text-muted-foreground">Email</dt>
+              <dd className="mt-4">
+                <a
+                  href={`mailto:${brand.email}`}
+                  className="link-quiet font-display text-2xl font-light text-forest md:text-3xl"
+                >
+                  {brand.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="eyebrow text-muted-foreground">Phone</dt>
+              <dd className="mt-4">
+                <a
+                  href={`tel:${brand.phoneHref}`}
+                  className="link-quiet font-display text-2xl font-light text-forest md:text-3xl"
+                >
+                  {brand.phone}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="eyebrow text-muted-foreground">Instagram</dt>
+              <dd className="mt-4">
+                <a
+                  href={brand.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-quiet font-display text-2xl font-light text-forest md:text-3xl"
+                >
+                  {brand.instagram}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="eyebrow text-muted-foreground">Location</dt>
+              <dd className="mt-4 font-display text-2xl font-light text-forest md:text-3xl">
+                {brand.city}
+              </dd>
+            </div>
+          </dl>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
+            <div className="grid gap-10 sm:grid-cols-2">
+              <div>
+                <label htmlFor="name" className="eyebrow text-muted-foreground">
+                  Name
+                </label>
+                <input id="name" name="name" className={fieldClass} placeholder="Your name" />
+              </div>
+              <div>
+                <label htmlFor="email" className="eyebrow text-muted-foreground">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  className={fieldClass}
+                  placeholder="you@email.com"
+                />
+              </div>
+            </div>
+            <div className="grid gap-10 sm:grid-cols-2">
+              <div>
+                <label htmlFor="dates" className="eyebrow text-muted-foreground">
+                  Dates
+                </label>
+                <input id="dates" name="dates" className={fieldClass} placeholder="dd/mm — dd/mm" />
+              </div>
+              <div>
+                <label htmlFor="guests" className="eyebrow text-muted-foreground">
+                  Guests
+                </label>
+                <input id="guests" name="guests" className={fieldClass} placeholder="2 guests" />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="message" className="eyebrow text-muted-foreground">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
+                className={`${fieldClass} resize-none`}
+                placeholder="Tell us a little about your stay"
+              />
+            </div>
+            <ActionButton variant="forest">Send Enquiry</ActionButton>
+            <p className="text-xs font-light text-muted-foreground">
+              This form is presentational for now — please email or call us directly.
+            </p>
+          </form>
+        </Reveal>
+      </section>
+
+      <section className="relative overflow-hidden bg-beige">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.55]"
+          style={{ backgroundImage: `url(${brand.textureBeige})`, backgroundSize: "560px auto" }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32 lg:px-16">
+          <p className="eyebrow text-gold">Find Us</p>
+          <h2 className="mt-6 text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] text-forest">
+            Bengaluru, India
+          </h2>
+          <div className="mt-12 flex aspect-16/9 w-full items-center justify-center border border-forest/15 bg-ivory/70 md:aspect-21/9">
+            <div className="text-center">
+              <div className="rule-gold mx-auto" />
+              <p className="eyebrow mt-6 text-forest/70">Map placeholder</p>
+              <p className="mt-3 text-xs font-light text-muted-foreground">
+                Exact location shared on confirmed stays.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
