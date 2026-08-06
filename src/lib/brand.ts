@@ -1,5 +1,5 @@
-import logoLight from "@/assets/Elora_Homes_logo_transparent_bg.png.asset.json";
-import logoDark from "@/assets/Elora_Homes_logo_dark.png.asset.json";
+import logoLight from "@/assets/Elora_Homes_logo_primary.png.asset.json";
+import logoDark from "@/assets/Elora_Homes_logo_reversed.png.asset.json";
 import textureBeige from "@/assets/Elora_Homes_textures_2.png.asset.json";
 import textureForest from "@/assets/Elora_Homes_textures_3.png.asset.json";
 
