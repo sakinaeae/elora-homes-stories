@@ -146,7 +146,7 @@ function ContactPage() {
       <section className="relative overflow-hidden bg-beige">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.55]"
+          className="pointer-events-none absolute inset-0 opacity-[0.3]"
           style={{ backgroundImage: `url(${brand.textureBeige})`, backgroundSize: "560px auto" }}
         />
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32 lg:px-16">

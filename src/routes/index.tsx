@@ -126,7 +126,7 @@ function Home() {
       <section className="relative overflow-hidden bg-beige">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.5]"
+          className="pointer-events-none absolute inset-0 opacity-[0.3]"
           style={{ backgroundImage: `url(${brand.textureBeige})`, backgroundSize: "560px auto" }}
         />
         <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-2 md:px-10 md:py-40 lg:gap-28 lg:px-16">
