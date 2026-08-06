@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 function Spec({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <p className="font-display text-3xl leading-none font-light text-forest">{value}</p>
+      <p className="font-display text-3xl leading-none font-light text-forest [font-variant-numeric:lining-nums]">{value}</p>
       <p className="eyebrow mt-3 text-muted-foreground">{label}</p>
     </div>
   );
