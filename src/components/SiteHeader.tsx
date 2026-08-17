@@ -60,17 +60,6 @@ export function SiteHeader() {
               {l.label}
             </Link>
           ))}
-          <a
-            href={`mailto:${brand.email}`}
-            className={cn(
-              "eyebrow border px-6 py-3 transition-colors duration-500",
-              onDark
-                ? "border-ivory/40 text-ivory hover:bg-ivory hover:text-forest"
-                : "border-forest/30 text-forest hover:bg-forest hover:text-ivory",
-            )}
-          >
-            Enquire
-          </a>
         </nav>
 
         <button
