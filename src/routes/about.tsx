@@ -33,7 +33,7 @@ function AboutPage() {
         <Reveal>
           <p className="eyebrow text-gold">About Elora</p>
           <h1 className="mt-8 max-w-4xl text-[clamp(2.5rem,6vw,5rem)] leading-[1.04] text-forest">
-            Where every stay tells a story.
+            Spaces Styled for Every Story.
           </h1>
         </Reveal>
       </section>
