@@ -5,7 +5,7 @@ import { ActionLink } from "@/components/ActionLink";
 import { brand } from "@/lib/brand";
 import heroImage from "@/assets/hero.jpg";
 import detailImage from "@/assets/detail-linen.jpg";
-import stayOne from "@/assets/stay-one.jpg";
+import stayOne from "@/assets/golden-hour-2.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
