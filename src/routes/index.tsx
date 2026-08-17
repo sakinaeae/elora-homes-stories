@@ -78,19 +78,15 @@ function Home() {
               View the Stays
             </ActionLink>
             <ActionLink to="/contact" variant="onDark">
-              Enquire
+              Contact
             </ActionLink>
           </div>
         </div>
       </section>
 
       {/* Featured Stays */}
-      <section className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-40 lg:px-16">
-        <SectionHeading
-          eyebrow="Featured Stays"
-          title="Two homes, quietly considered."
-          intro="Each residence is styled in-house — linen, oak and green, arranged for slow mornings and easy evenings."
-        />
+      <section className="mx-auto max-w-7xl bg-[linear-gradient(135deg,#d8ccbb_0%,#c5b39d_100%)] px-6 py-28 md:px-10 md:py-40 lg:px-16">
+        <SectionHeading eyebrow="Featured Stays" title="Two homes, quietly considered." />
         <div className="mt-20 grid gap-12 md:grid-cols-2 md:gap-10">
           {stays.map((stay, i) => (
             <Reveal key={stay.slug} as="figure" delay={i * 120} className="group">
@@ -117,11 +113,6 @@ function Home() {
             </Reveal>
           ))}
         </div>
-        <Reveal className="mt-16">
-          <ActionLink to="/stays" variant="outline">
-            All Stays
-          </ActionLink>
-        </Reveal>
       </section>
 
       {/* Editorial Story */}
@@ -181,31 +172,6 @@ function Home() {
               />
             </Reveal>
           ))}
-        </div>
-      </section>
-
-      {/* Why Choose Elora */}
-      <section className="relative overflow-hidden bg-forest">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.12]"
-          style={{ backgroundImage: `url(${brand.textureForest})`, backgroundSize: "620px auto" }}
-        />
-        <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-40 lg:px-16">
-          <SectionHeading
-            eyebrow="Why Elora"
-            title="Hosted with heart, finished with care."
-            tone="dark"
-          />
-          <div className="mt-20 grid gap-x-16 gap-y-14 sm:grid-cols-2">
-            {values.map((v, i) => (
-              <Reveal key={v.title} delay={i * 100} className="border-t border-ivory/15 pt-8">
-                <p className="eyebrow text-gold-pale">0{i + 1}</p>
-                <h3 className="mt-5 text-3xl text-ivory">{v.title}</h3>
-                <p className="mt-4 max-w-sm text-sm leading-[1.9] font-light text-ivory/65">{v.copy}</p>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
