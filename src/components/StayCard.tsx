@@ -36,13 +36,17 @@ export function StayCard({ stay, index }: { stay: Stay; index: number }) {
       <figcaption className={cn(flipped && "md:order-1")}>
         <p className="eyebrow text-gold">{stay.location}</p>
         <h3 className="mt-5 text-[clamp(2rem,3.5vw,3rem)] leading-[1.08] text-forest">{stay.name}</h3>
+        <p className="mt-3 text-[0.7rem] tracking-[0.16em] text-muted-foreground uppercase">
+          Entire rental unit · {stay.subtitle}
+        </p>
         <p className="mt-6 max-w-md text-sm leading-[1.9] font-light text-muted-foreground">
           {stay.description}
         </p>
 
-        <div className="mt-10 grid max-w-sm grid-cols-3 gap-6 border-y border-border py-8">
+        <div className="mt-10 grid max-w-md grid-cols-4 gap-6 border-y border-border py-8">
           <Spec label="Guests" value={String(stay.guests)} />
           <Spec label={stay.bedrooms === 1 ? "Bedroom" : "Bedrooms"} value={String(stay.bedrooms)} />
+          <Spec label={stay.beds === 1 ? "Bed" : "Beds"} value={String(stay.beds)} />
           <Spec label={stay.bathrooms === 1 ? "Bath" : "Baths"} value={String(stay.bathrooms)} />
         </div>
 
@@ -51,6 +55,17 @@ export function StayCard({ stay, index }: { stay: Stay; index: number }) {
             <li key={a}>{a}</li>
           ))}
         </ul>
+
+        <div className="mt-8 space-y-2 text-sm leading-[1.9] font-light text-muted-foreground">
+          {stay.sleeping.map((s) => (
+            <p key={s}>{s}</p>
+          ))}
+        </div>
+
+        <p className="mt-6 text-[0.7rem] tracking-[0.16em] text-muted-foreground uppercase">
+          {stay.houseRules.join(" · ")}
+        </p>
+
 
         <div className="mt-10">
           <ActionLink href={stay.listingUrl} variant="outline">

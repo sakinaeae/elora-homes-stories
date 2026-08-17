@@ -6,8 +6,10 @@ import { brand } from "@/lib/brand";
 import { stays } from "@/data/stays";
 import heroImage from "@/assets/hero.jpg";
 import detailImage from "@/assets/detail-linen.jpg";
-import stayOne from "@/assets/stay-one.jpg";
-import stayTwo from "@/assets/stay-two.jpg";
+import stayOne from "@/assets/cozy-corner-1.jpg";
+import stayTwo from "@/assets/golden-hour-1.jpg";
+import stayThree from "@/assets/cozy-corner-2.jpg";
+import stayFour from "@/assets/golden-hour-3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -109,7 +111,7 @@ function Home() {
                   {stay.description}
                 </p>
                 <p className="mt-6 text-[0.7rem] tracking-[0.16em] text-muted-foreground uppercase">
-                  {stay.guests} guests · {stay.bedrooms} bed · {stay.bathrooms} bath
+                  {stay.guests} guests · {stay.bedrooms} {stay.bedrooms === 1 ? "bedroom" : "bedrooms"} · {stay.beds} {stay.beds === 1 ? "bed" : "beds"} · {stay.bathrooms} {stay.bathrooms === 1 ? "bath" : "baths"}
                 </p>
               </figcaption>
             </Reveal>
@@ -165,7 +167,7 @@ function Home() {
       <section className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-40 lg:px-16">
         <SectionHeading eyebrow="Gallery" title="Moments from within." align="center" />
         <div className="mt-20 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-          {[heroImage, stayOne, detailImage, stayTwo].map((src, i) => (
+          {[stayOne, stayTwo, stayThree, stayFour].map((src, i) => (
             <Reveal key={i} delay={i * 100} className="overflow-hidden">
               <img
                 src={src}
