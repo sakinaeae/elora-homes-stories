@@ -28,7 +28,7 @@ export function SiteHeader() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,padding] duration-700 ease-out",
         transparent
-          ? "border-b border-transparent bg-transparent py-6"
+          ? "border-b border-transparent bg-transparent py-5"
           : open
             ? "border-b border-ivory/10 bg-forest py-4"
             : "border-b border-border bg-ivory/95 py-4 backdrop-blur-md",
@@ -39,9 +39,9 @@ export function SiteHeader() {
           <img
             src={onDark ? brand.logoDark : brand.logoLight}
             alt={`${brand.name} logo`}
-            width={160}
-            height={160}
-            className="h-14 w-auto shrink-0 md:h-16"
+            width={220}
+            height={100}
+            className="h-20 w-auto max-w-[180px] shrink-0 object-contain object-left md:h-24 md:max-w-[210px]"
           />
         </Link>
 
