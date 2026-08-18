@@ -23,5 +23,5 @@ export const navLinks = [
   { to: "/", label: "Home" },
   { to: "/stays", label: "Stays" },
   { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/contact", label: "Enquire" },
 ] as const;
