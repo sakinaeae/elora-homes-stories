@@ -11,10 +11,8 @@ export const brand = {
   instagramUrl: "https://instagram.com/elorahomesinn",
   website: "elorahomesinn.com",
   city: "Bengaluru, India",
-  // The previous Lovable-managed logo URLs are not available on Vercel.
-  // Use the committed favicon/brand mark as a reliable production asset.
-  logoLight: "/favicon.png",
-  logoDark: "/favicon.png",
+  logoLight: "/elora-logo.svg",
+  logoDark: "/elora-logo-reverse.svg",
   textureBeige: textureBeige.url,
   textureForest: textureForest.url,
 };
