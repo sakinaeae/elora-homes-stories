@@ -10,12 +10,12 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Speak with Elora Homes about a stay in Bengaluru. Email elorahomesinn@gmail.com, call 9916120726, or send an enquiry.",
+          "Speak with Elora Homes about a stay in Bengaluru. Email elorahomesinn@gmail.com, call 9916120726, or send a message.",
       },
       { property: "og:title", content: "Contact Elora Homes" },
       {
         property: "og:description",
-        content: "Enquire about availability, longer stays or hosting with Elora Homes, Bengaluru.",
+        content: "Contact us about availability, longer stays or hosting with Elora Homes, Bengaluru.",
       },
     ],
   }),
@@ -135,7 +135,7 @@ function ContactPage() {
                 placeholder="Tell us a little about your stay"
               />
             </div>
-            <ActionButton variant="forest">Send Enquiry</ActionButton>
+            <ActionButton variant="forest">Send Message</ActionButton>
             <p className="text-xs font-light text-muted-foreground">
               This form is presentational for now — please email or call us directly.
             </p>

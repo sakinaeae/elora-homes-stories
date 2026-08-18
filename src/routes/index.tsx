@@ -78,7 +78,7 @@ function Home() {
               View the Stays
             </ActionLink>
             <ActionLink to="/contact" variant="onDark">
-              Enquire
+              Contact
             </ActionLink>
           </div>
         </div>
