@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 190" role="img" aria-labelledby="title desc">
+  <title id="title">Elora Homes</title>
+  <desc id="desc">Elora Homes reverse wordmark with a refined roof and window motif.</desc>
+  <g fill="none" stroke="#A78B5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M275 45 L335 12 L395 45"/>
+    <path d="M381 20 L381 7 L397 7 L397 43"/>
+    <rect x="329" y="31" width="15" height="15" rx="1"/>
+    <path d="M336.5 31 V46 M329 38.5 H344"/>
+  </g>
+  <text x="260" y="91" text-anchor="middle" fill="#F8F6F1" font-size="72" font-family="Brush Script MT, Segoe Script, cursive" font-style="italic" font-weight="500">Elora</text>
+  <g fill="#A78B5A">
+    <rect x="105" y="116" width="86" height="1.5"/>
+    <rect x="329" y="116" width="86" height="1.5"/>
+  </g>
+  <text x="260" y="125" text-anchor="middle" fill="#A78B5A" font-size="17" font-family="Satoshi, Arial, sans-serif" letter-spacing="8">HOMES</text>
+</svg>
