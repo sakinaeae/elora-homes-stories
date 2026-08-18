@@ -23,11 +23,7 @@ export function SiteFooter() {
             <p className="mt-8 max-w-xs font-display text-2xl leading-snug font-light text-ivory/90">
               {brand.tagline}
             </p>
-            <p className="mt-6 text-xs leading-loose font-light text-ivory/55">
-              Thoughtful stays. Timeless experiences.
-              <br />
-              {brand.city}
-            </p>
+            <p className="mt-6 text-xs leading-loose font-light text-ivory/55">{brand.city}</p>
           </div>
 
           <div>
@@ -77,7 +73,7 @@ export function SiteFooter() {
 
         <div className="mt-20 flex flex-col gap-4 border-t border-ivory/15 pt-8 text-[0.65rem] tracking-[0.18em] text-ivory/45 uppercase sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {brand.name}</p>
-          <p>Where every stay tells a story</p>
+          <p>Spaces Styled for Every Story.</p>
         </div>
       </div>
     </footer>
