@@ -1,5 +1,3 @@
-import logoLight from "@/assets/Elora_Homes_logo_primary.png.asset.json";
-import logoDark from "@/assets/Elora_Homes_logo_reversed.png.asset.json";
 import textureBeige from "@/assets/Elora_Homes_textures_2.png.asset.json";
 import textureForest from "@/assets/Elora_Homes_textures_3.png.asset.json";
 
@@ -13,8 +11,10 @@ export const brand = {
   instagramUrl: "https://instagram.com/elorahomesinn",
   website: "elorahomesinn.com",
   city: "Bengaluru, India",
-  logoLight: logoLight.url,
-  logoDark: logoDark.url,
+  // The previous Lovable-managed logo URLs are not available on Vercel.
+  // Use the committed favicon/brand mark as a reliable production asset.
+  logoLight: "/favicon.png",
+  logoDark: "/favicon.png",
   textureBeige: textureBeige.url,
   textureForest: textureForest.url,
 };
