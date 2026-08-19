@@ -37,11 +37,11 @@ export function SiteHeader() {
       <div className="mx-auto grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 px-6 md:px-10 lg:px-16">
         <Link to="/" className="flex min-w-0 items-center" aria-label={brand.name}>
           <img
-            src={onDark ? brand.logoDark : brand.logoLight}
+            src={brand.logo}
             alt={`${brand.name} logo`}
             width={160}
             height={160}
-            className="h-14 w-auto shrink-0 md:h-16"
+            className="h-14 w-auto shrink-0 bg-ivory px-2 py-1 md:h-16"
           />
         </Link>
 

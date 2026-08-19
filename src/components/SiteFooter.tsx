@@ -13,16 +13,13 @@ export function SiteFooter() {
         <div className="grid gap-16 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
             <img
-              src={brand.logoDark}
+              src={brand.logo}
               alt={`${brand.name} logo`}
               width={200}
               height={200}
               loading="lazy"
-              className="h-20 w-auto"
+              className="h-20 w-auto bg-ivory px-3 py-2"
             />
-            <p className="mt-8 max-w-xs font-display text-2xl leading-snug font-light text-ivory/90">
-              {brand.tagline}
-            </p>
             <p className="mt-6 text-xs leading-loose font-light text-ivory/55">{brand.city}</p>
           </div>
 
@@ -73,7 +70,6 @@ export function SiteFooter() {
 
         <div className="mt-20 flex flex-col gap-4 border-t border-ivory/15 pt-8 text-[0.65rem] tracking-[0.18em] text-ivory/45 uppercase sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {brand.name}</p>
-          <p>Spaces Styled for Every Story.</p>
         </div>
       </div>
     </footer>
