@@ -37,7 +37,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="eyebrow text-gold-pale">Contact</p>
+            <p className="eyebrow text-gold-pale">Enquire</p>
             <ul className="mt-8 space-y-4 text-sm font-light text-ivory/80">
               <li>
                 <a href={`mailto:${brand.email}`} className="link-quiet hover:text-ivory">
