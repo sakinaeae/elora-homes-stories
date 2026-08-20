@@ -9,18 +9,23 @@ export function SiteFooter() {
         className="pointer-events-none absolute inset-0 opacity-[0.14]"
         style={{ backgroundImage: `url(${brand.textureForest})`, backgroundSize: "620px auto" }}
       />
-      <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32 lg:px-16">
+      <div className="relative mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-20 lg:px-16">
         <div className="grid gap-16 md:grid-cols-[1.2fr_1fr_1fr]">
-          <div>
+          <div className="flex flex-col items-center text-center">
             <img
               src={brand.logoLight}
               alt={`${brand.name} logo`}
-              width={240}
-              height={240}
+              width={517}
+              height={227}
               loading="lazy"
-              className="h-28 w-28 object-contain p-2 md:h-32 md:w-32"
+              className="h-16 w-auto object-contain md:h-20"
             />
-            <p className="mt-6 text-xs leading-loose font-light text-ivory/55">{brand.city}</p>
+            <p className="mt-4 font-display text-lg font-light tracking-wide text-ivory/90">
+              Spaces Styled for Every Story.
+            </p>
+            <p className="mt-2 text-xs leading-loose font-light text-ivory/60">
+              Bengaluru, India.
+            </p>
           </div>
 
           <div>

@@ -75,7 +75,7 @@ export const stays: Stay[] = [
   {
     slug: "the-cozy-corner",
     name: "The Cozy Corner",
-    subtitle: "1BHK in Arekere",
+    subtitle: "1BHK in Arekere, Bengaluru",
     location: "Arekere, Bengaluru",
     description:
       "An entire one-bedroom home wrapped in warm tones — made for movie nights, slow coffee mornings and late conversations. The kind of place you quietly extend your stay in.",
@@ -101,7 +101,7 @@ export const stays: Stay[] = [
   {
     slug: "the-golden-hour",
     name: "The Golden Hour",
-    subtitle: "2BHK in Arekere",
+    subtitle: "2BHK in Arekere, Bengaluru",
     location: "Arekere, Bengaluru",
     description:
       "A two-bedroom home curated in earthy tones and warm light. Every stay has a story — this one is designed for gathering, resting and reconnecting in the city.",

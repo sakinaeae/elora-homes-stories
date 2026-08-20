@@ -28,10 +28,10 @@ export function SiteHeader() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,padding] duration-700 ease-out",
         transparent
-          ? "border-b border-transparent bg-espresso/20 py-6"
+          ? "border-b border-transparent bg-transparent py-4 md:py-5"
           : open
-            ? "border-b border-ivory/10 bg-forest py-4"
-            : "border-b border-border bg-ivory/95 py-4 backdrop-blur-md",
+            ? "border-b border-ivory/10 bg-forest py-3.5"
+            : "border-b border-border bg-ivory/95 py-3 backdrop-blur-md",
       )}
     >
       <div className="mx-auto grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 px-6 md:px-10 lg:px-16">
@@ -39,10 +39,10 @@ export function SiteHeader() {
           <img
             src={onDark ? brand.logoLight : brand.logo}
             alt={`${brand.name} logo`}
-            width={128}
-            height={128}
+            width={517}
+            height={227}
             className={cn(
-              "h-24 w-24 shrink-0 object-contain p-1 md:h-28 md:w-28",
+              "h-12 w-auto shrink-0 object-contain md:h-14",
               onDark && "drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]",
             )}
           />
