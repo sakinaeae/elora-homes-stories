@@ -13,7 +13,7 @@ export function SiteFooter() {
         <div className="grid gap-16 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
             <img
-              src={brand.logo}
+              src={brand.logoLight}
               alt={`${brand.name} logo`}
               width={240}
               height={240}

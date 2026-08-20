@@ -12,6 +12,7 @@ export const brand = {
   website: "elorahomesinn.com",
   city: "Bengaluru, India",
   logo: "/elora-homes-official-logo.png",
+  logoLight: "/elora-homes-white-logo.png",
   textureBeige: textureBeige.url,
   textureForest: textureForest.url,
 };

@@ -106,10 +106,6 @@ function Home() {
               <ActionLink to="/contact" variant="gold">Enquire</ActionLink>
             </div>
           </div>
-          <div className="mt-12 flex items-center justify-between border-t border-ivory/25 pt-4 text-[0.65rem] tracking-[0.25em] text-ivory/80 uppercase">
-            <span>{String(activeSlide + 1).padStart(2, "0")} / {String(heroSlides.length).padStart(2, "0")}</span>
-            <span className="hidden md:block">Scroll to explore</span>
-          </div>
         </div>
       </section>
 
