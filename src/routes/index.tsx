@@ -8,9 +8,7 @@ import { loadInstagramPosts, type InstagramPost } from "@/lib/instagram";
 import { stays } from "@/data/stays";
 import heroImage from "@/assets/hero.jpg";
 import stayOne from "@/assets/cozy-corner-1.jpg";
-import cozyTwo from "@/assets/cozy-corner-2.jpg";
 import stayTwo from "@/assets/golden-hour-1.jpg";
-import goldenTwo from "@/assets/golden-hour-2.jpg";
 import galleryBed from "@/assets/gallery-bed.jpg";
 import galleryBedTwo from "@/assets/gallery-bed-two.jpg";
 import galleryLounge from "@/assets/gallery-lounge.jpg";
@@ -42,7 +40,18 @@ const heroSlides = [
   { src: galleryBedTwo, alt: "Elora Homes second bedroom" },
 ];
 
-const storyImages = [galleryLounge, galleryBed, galleryBedTwo, cozyTwo, goldenTwo];
+const storyImages = [
+  { src: "/elora-inside/inside-living-wide.jpg", alt: "Elora Homes living room with cinema setup" },
+  { src: "/elora-inside/inside-bedroom-warm.jpg", alt: "Warmly styled Elora Homes bedroom" },
+  { src: "/elora-inside/inside-living-sofa.jpg", alt: "Elora Homes lounge with a round coffee table" },
+  { src: "/elora-inside/inside-bedroom-red.jpg", alt: "Elora Homes bedroom with layered textiles" },
+  { src: "/elora-inside/inside-dining-detail.jpg", alt: "Elora Homes dining and art detail" },
+  { src: "/elora-inside/inside-reading-nook.jpg", alt: "Elora Homes reading nook with window light" },
+  { src: "/elora-inside/inside-kitchen.jpg", alt: "Elora Homes kitchen" },
+  { src: "/elora-inside/inside-bedroom-neutral.jpg", alt: "Elora Homes neutral bedroom" },
+  { src: "/elora-inside/inside-sofa-soft.jpg", alt: "Elora Homes soft seating area" },
+  { src: "/elora-inside/inside-shelf-detail.jpg", alt: "Elora Homes styled shelf detail" },
+];
 
 function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -90,7 +99,7 @@ function Home() {
             }`}
           />
         ))}
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-espresso/95 via-espresso/35 to-espresso/20" />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-espresso/95 via-espresso/45 to-espresso/35" />
         <div className="relative mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col justify-end px-6 pb-12 md:px-10 md:pb-20 lg:px-16">
           <div className="max-w-4xl">
             <p className="eyebrow text-gold-pale">Bengaluru, India</p>
@@ -152,9 +161,9 @@ function Home() {
             <div className="mb-14"><p className="eyebrow text-gold-pale">Inside Elora</p><h2 className="mt-5 max-w-2xl text-[clamp(2.8rem,5vw,5.2rem)] leading-[0.95] text-ivory">A collection of quiet moments.</h2></div>
           </Reveal>
           <div className="grid gap-3 md:grid-cols-12 md:gap-5">
-            {storyImages.map((src, i) => (
+            {storyImages.map(({ src, alt }, i) => (
               <Reveal key={i} delay={i * 70} className={`overflow-hidden ${i === 0 || i === 4 ? "md:col-span-7" : "md:col-span-5"}`}>
-                <img src={src} alt="Elora Homes interior" width={1400} height={1100} loading="lazy" className={`w-full object-cover transition-transform duration-[1600ms] ease-out hover:scale-[1.025] ${i === 0 || i === 4 ? "aspect-[16/10]" : "aspect-[4/5]"}`} />
+                <img src={src} alt={alt} width={1400} height={1100} loading="lazy" className={`w-full object-cover transition-transform duration-[1600ms] ease-out hover:scale-[1.025] ${i === 0 || i === 4 ? "aspect-[16/10]" : "aspect-[4/5]"}`} />
               </Reveal>
             ))}
           </div>
