@@ -1,0 +1,105 @@
+Continue working on the existing Elora Homes website. Do NOT rebuild or migrate the project. Keep the existing React/TypeScript/Vite/TanStack architecture and current design direction.
+
+1. OFFICIAL LOGO
+- Use the official Elora Homes transparent-background logo everywhere the brand logo appears:
+  header, mobile header, footer and other logo placements.
+- Use the actual local logo asset from the repository.
+- Do NOT recreate the logo as text.
+- Do NOT use the favicon as the logo.
+- Do NOT use /__l5e/ Lovable assets.
+- The favicon should remain ONLY the favicon.
+- Preserve the exact logo proportions and transparent background.
+
+2. HERO / SLIDESHOW
+- Keep the current full-screen slideshow.
+- Make the slideshow images noticeably darker using an elegant dark overlay/gradient so all text is clearly readable.
+- Do not make the images so dark that the interiors disappear.
+- Keep the real Elora Homes photographs only.
+- No AI, stock, placeholder or generic hotel images.
+
+3. FEATURED STAYS
+- Keep:
+  Featured Stays
+  Two homes, quietly considered.
+- Darken the property images with a subtle overlay so the text is clearly readable.
+- Keep the photography visible and premium.
+- Do not introduce new/random images.
+
+4. INSIDE ELORA
+- Keep the Inside Elora section.
+- Do NOT repeat the same photograph more than once within this section.
+- Replace repeated images with other GOOD real Elora Homes photographs already available in the repository.
+- Prioritize bedrooms, living rooms, halls, dining areas and beautiful interior views.
+- Do NOT use bathrooms, sinks, drawers, cupboards, cleaning supplies, towels, appliances or utility/maintenance photos.
+- Inspect the actual images before choosing them rather than relying only on filenames.
+
+5. ENTIRE WEBSITE IMAGE AUDIT
+- Check Home, Stays, individual property pages, About, Gallery and Contact.
+- Do not unnecessarily repeat the exact same image across multiple sections/pages when other good real Elora Homes images are available.
+- Create curated image arrays for each section/page.
+- Use the strongest appropriate real property photographs.
+- Never use AI-generated, stock, placeholder or unrelated images.
+- Never use ugly utility/cleaning/bathroom images just to fill a space.
+
+6. INSTAGRAM — REAL AUTOMATIC FEED
+Connect the website to the official Elora Homes Instagram account:
+
+@elorahomesinn
+
+I want the website to automatically update when I publish new Instagram posts.
+
+Implement this properly using the official Instagram/Meta API where supported.
+
+Requirements:
+- Do NOT fabricate Instagram posts.
+- Do NOT use property images as fake Instagram posts.
+- Do NOT hardcode Instagram posts.
+- Fetch the latest real Instagram media dynamically.
+- Show the newest posts first.
+- Each post should link to its actual Instagram post.
+- Use server-side/API routes for Instagram requests.
+- NEVER expose access tokens in frontend code.
+- Store credentials in Replit Secrets/environment variables.
+- Create a graceful fallback showing “Follow @elorahomesinn” if the API is unavailable.
+
+Use a clean data structure such as:
+id
+mediaUrl
+permalink
+caption
+mediaType
+timestamp
+
+If Instagram requires Meta Business/Professional account permissions or credentials that are not yet available, set up everything that can be prepared in the code and clearly tell me exactly which credentials/connection I need to provide. Do not fake the connection.
+
+7. TEXT VISIBILITY
+Audit every image section across the website.
+Whenever text sits on top of an image:
+- add a tasteful dark gradient/overlay
+- ensure strong contrast
+- keep the image visible
+- make text readable on both desktop and mobile.
+
+8. KEEP EXISTING ELORA BRAND
+Do not change:
+- official logo
+- brand colours
+- typography
+- overall luxury/editorial direction
+- existing property information
+
+9. FINAL CHECK
+Before finishing:
+- logo loads correctly with transparent background
+- favicon remains separate
+- no /__l5e/ logo references remain
+- slideshow text is readable
+- Featured Stays text is readable
+- Inside Elora has no duplicate images
+- other pages use varied, high-quality real Elora Homes photos
+- no utility/cleaning/bathroom images are used unnecessarily
+- Instagram integration is real or has a clear API setup/fallback
+- mobile and desktop both work
+- build passes
+
+Do not push directly to production. Keep the changes in the current Replit development environment until I approve the preview.
