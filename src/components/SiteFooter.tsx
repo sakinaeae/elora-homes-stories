@@ -18,7 +18,7 @@ export function SiteFooter() {
               width={240}
               height={240}
               loading="lazy"
-              className="h-28 w-28 bg-ivory object-contain p-2 md:h-32 md:w-32"
+              className="h-28 w-28 object-contain p-2 md:h-32 md:w-32"
             />
             <p className="mt-6 text-xs leading-loose font-light text-ivory/55">{brand.city}</p>
           </div>
