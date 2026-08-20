@@ -11,7 +11,7 @@ export const brand = {
   instagramUrl: "https://instagram.com/elorahomesinn",
   website: "elorahomesinn.com",
   city: "Bengaluru, India",
-  logo: "/elora-homes-logo.png",
+  logo: "/elora-homes-official-logo.png",
   textureBeige: textureBeige.url,
   textureForest: textureForest.url,
 };

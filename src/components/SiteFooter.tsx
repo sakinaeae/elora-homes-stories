@@ -15,10 +15,10 @@ export function SiteFooter() {
             <img
               src={brand.logo}
               alt={`${brand.name} logo`}
-              width={200}
-              height={200}
+              width={240}
+              height={240}
               loading="lazy"
-              className="h-20 w-auto bg-ivory px-3 py-2"
+              className="h-28 w-28 bg-ivory object-contain p-2 md:h-32 md:w-32"
             />
             <p className="mt-6 text-xs leading-loose font-light text-ivory/55">{brand.city}</p>
           </div>

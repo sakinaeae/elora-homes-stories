@@ -39,9 +39,9 @@ export function SiteHeader() {
           <img
             src={brand.logo}
             alt={`${brand.name} logo`}
-            width={160}
-            height={160}
-            className="h-14 w-auto shrink-0 bg-ivory px-2 py-1 md:h-16"
+              width={128}
+              height={128}
+              className="h-24 w-24 shrink-0 bg-ivory object-contain p-1 md:h-28 md:w-28"
           />
         </Link>
 
