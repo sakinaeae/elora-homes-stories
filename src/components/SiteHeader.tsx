@@ -28,10 +28,10 @@ export function SiteHeader() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,padding] duration-700 ease-out",
         transparent
-          ? "border-b border-transparent bg-transparent py-4 md:py-5"
+          ? "border-b border-transparent bg-transparent py-5 md:py-6"
           : open
-            ? "border-b border-ivory/10 bg-forest py-3.5"
-            : "border-b border-border bg-ivory/95 py-3 backdrop-blur-md",
+            ? "border-b border-ivory/10 bg-forest py-5 md:py-6"
+            : "border-b border-border bg-ivory/95 py-5 md:py-6 backdrop-blur-md",
       )}
     >
       <div className="mx-auto grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 px-6 md:px-10 lg:px-16">

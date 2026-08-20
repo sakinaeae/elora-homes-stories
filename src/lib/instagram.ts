@@ -1,3 +1,5 @@
+import { createServerFn } from "@tanstack/react-start";
+
 export type InstagramPost = {
   id: string;
   mediaUrl: string;
@@ -19,64 +21,64 @@ type MetaMediaItem = {
   timestamp: string;
 };
 
-export async function loadInstagramPosts(): Promise<InstagramPost[]> {
-  const accessToken =
-    (typeof process !== "undefined" ? process.env?.INSTAGRAM_ACCESS_TOKEN : undefined) ||
-    (import.meta.env.VITE_INSTAGRAM_ACCESS_TOKEN as string | undefined);
+// In-memory 1-hour server-side cache
+let cachedPosts: InstagramPost[] = [];
+let lastCacheTime = 0;
+const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour (3,600,000 ms)
 
-  const feedUrl = import.meta.env.VITE_INSTAGRAM_FEED_URL as string | undefined;
+export const getInstagramPosts = createServerFn({ method: "GET" }).handler(
+  async (): Promise<InstagramPost[]> => {
+    const now = Date.now();
 
-  // 1. Direct Meta Graph API query if access token is set in environment
-  if (accessToken) {
+    // 1. Return fresh cached posts if available
+    if (cachedPosts.length > 0 && now - lastCacheTime < CACHE_TTL_MS) {
+      return cachedPosts;
+    }
+
+    // 2. Read strictly server-side environment variable (Never exposed to client JS)
+    const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+    if (!accessToken) {
+      return [];
+    }
+
     try {
-      const graphUrl = `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&limit=6&access_token=${encodeURIComponent(accessToken)}`;
+      // Official Meta Instagram Graph API endpoint (v20.0)
+      const graphUrl = `https://graph.instagram.com/v20.0/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&limit=6&access_token=${encodeURIComponent(accessToken)}`;
       const res = await fetch(graphUrl);
-      if (res.ok) {
-        const json = (await res.json()) as { data?: MetaMediaItem[] };
-        if (json.data && Array.isArray(json.data)) {
-          return json.data
-            .map((item) => ({
-              id: item.id,
-              mediaUrl: item.media_type === "VIDEO" && item.thumbnail_url ? item.thumbnail_url : item.media_url || "",
-              permalink: item.permalink,
-              caption: item.caption,
-              mediaType: item.media_type,
-              timestamp: item.timestamp,
-            }))
-            .filter((post) => post.mediaUrl !== "");
-        }
+
+      if (!res.ok) {
+        if (cachedPosts.length > 0) return cachedPosts;
+        return [];
       }
-    } catch {
-      // Fallback to custom feed proxy URL or empty list
-    }
-  }
 
-  // 2. Custom API feed proxy URL if configured
-  if (feedUrl) {
-    try {
-      const response = await fetch(feedUrl);
-      if (response.ok) {
-        const payload: unknown = await response.json();
-        if (Array.isArray(payload)) {
-          return payload.filter(isInstagramPost).sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+      const json = (await res.json()) as { data?: MetaMediaItem[] };
+      if (json.data && Array.isArray(json.data)) {
+        const posts: InstagramPost[] = json.data
+          .map((item) => ({
+            id: item.id,
+            mediaUrl:
+              item.media_type === "VIDEO" && item.thumbnail_url
+                ? item.thumbnail_url
+                : item.media_url || "",
+            permalink: item.permalink,
+            caption: item.caption,
+            mediaType: item.media_type,
+            timestamp: item.timestamp,
+          }))
+          .filter((post) => post.mediaUrl !== "");
+
+        if (posts.length > 0) {
+          cachedPosts = posts;
+          lastCacheTime = now;
         }
+
+        return posts;
       }
-    } catch {
-      // Fallback
+    } catch (error) {
+      console.error("Error fetching Meta Instagram Graph API:", error);
+      if (cachedPosts.length > 0) return cachedPosts;
     }
-  }
 
-  return [];
-}
-
-function isInstagramPost(value: unknown): value is InstagramPost {
-  if (!value || typeof value !== "object") return false;
-  const post = value as Record<string, unknown>;
-  return (
-    typeof post.id === "string" &&
-    typeof post.mediaUrl === "string" &&
-    typeof post.permalink === "string" &&
-    typeof post.timestamp === "string" &&
-    (post.mediaType === "IMAGE" || post.mediaType === "VIDEO" || post.mediaType === "CAROUSEL_ALBUM")
-  );
-}
+    return [];
+  },
+);

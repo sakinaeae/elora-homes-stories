@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ActionLink } from "@/components/ActionLink";
+import { ImageCarousel } from "@/components/ImageCarousel";
 import { brand } from "@/lib/brand";
-import { loadInstagramPosts, type InstagramPost } from "@/lib/instagram";
+import { getInstagramPosts, type InstagramPost } from "@/lib/instagram";
 import { stays } from "@/data/stays";
 import heroImage from "@/assets/hero.jpg";
 import stayOne from "@/assets/cozy-corner-1.jpg";
@@ -69,7 +70,7 @@ function Home() {
 
   useEffect(() => {
     let cancelled = false;
-    void loadInstagramPosts()
+    void getInstagramPosts()
       .then((posts) => {
         if (!cancelled) setInstagramPosts(posts);
       })
@@ -133,18 +134,26 @@ function Home() {
           <Reveal>
             <SectionHeading eyebrow="Featured Stays" title="Two homes, quietly considered." />
           </Reveal>
-          <div className="mt-8 space-y-6 md:space-y-8">
-            {[{ stay: stays[0]!, image: stayOne }, { stay: stays[1]!, image: stayTwo }].map(({ stay, image }, i) => (
-              <article key={stay.slug} className="group relative min-h-[78svh] overflow-hidden bg-espresso">
-                <img src={image} alt={`${stay.name} interior`} width={1600} height={1200} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1800ms] ease-out group-hover:scale-[1.035]" />
-                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-espresso/95 via-espresso/50 to-espresso/10" />
-                <div className="relative flex min-h-[78svh] flex-col justify-end p-8 md:p-14 lg:p-16">
-                  <div className="max-w-2xl drop-shadow-[0_2px_16px_rgba(0,0,0,0.35)]">
+          <div className="mt-8 grid gap-6 lg:gap-8 md:grid-cols-2">
+            {stays.slice(0, 2).map((stay, i) => (
+              <article key={stay.slug} className="group relative aspect-[3/4] overflow-hidden bg-espresso rounded-xl">
+                <div className="absolute inset-0">
+                  <ImageCarousel 
+                    images={stay.gallery} 
+                    alt={`${stay.name} interior`} 
+                    priorityFirst={i === 0}
+                    className="h-full"
+                    imageClassName="object-[50%_80%] transition-transform duration-[1800ms] ease-out group-hover:scale-[1.01]"
+                  />
+                </div>
+                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-espresso/95 via-espresso/50 to-espresso/10 pointer-events-none" />
+                <div className="relative flex h-full flex-col justify-end p-8 lg:p-12 pointer-events-none">
+                  <div className="max-w-2xl drop-shadow-[0_2px_16px_rgba(0,0,0,0.35)] pointer-events-auto">
                     <p className="eyebrow text-gold-pale">{stay.subtitle}</p>
-                    <h2 className="mt-3 text-[clamp(2.4rem,5vw,4.25rem)] leading-[0.95] text-ivory">{stay.name}</h2>
-                    <p className="mt-5 max-w-lg text-sm leading-[1.9] font-light text-ivory/90">{stay.description}</p>
-                    <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-[0.68rem] tracking-[0.15em] text-ivory/80 uppercase"><span>{stay.guests} guests</span><span>{stay.bedrooms} bedrooms</span><span>{stay.bathrooms} baths</span></div>
-                    <div className="mt-7"><ActionLink to="/stays/$slug" params={{ slug: stay.slug }} variant="gold">Discover the home</ActionLink></div>
+                    <h2 className="mt-3 text-[clamp(2rem,3vw,3.5rem)] leading-[0.95] text-ivory">{stay.name}</h2>
+                    <p className="mt-4 max-w-lg text-xs leading-[1.8] font-light text-ivory/90 line-clamp-2">{stay.description}</p>
+                    <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.6rem] tracking-[0.15em] text-ivory/80 uppercase"><span>{stay.guests} guests</span><span>{stay.bedrooms} bedrooms</span><span>{stay.bathrooms} baths</span></div>
+                    <div className="mt-6"><ActionLink to="/stays/$slug" params={{ slug: stay.slug }} variant="gold">Explore stay</ActionLink></div>
                   </div>
                 </div>
               </article>

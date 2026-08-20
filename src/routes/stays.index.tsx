@@ -3,7 +3,7 @@ import { StayCard } from "@/components/StayCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { stays } from "@/data/stays";
 
-export const Route = createFileRoute("/stays")({
+export const Route = createFileRoute("/stays/")({
   head: () => ({
     meta: [
       { title: "The Stays — Elora Homes Bengaluru" },

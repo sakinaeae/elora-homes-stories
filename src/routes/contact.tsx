@@ -28,10 +28,10 @@ const fieldClass =
 function ContactPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-6 pt-40 pb-20 md:px-10 md:pt-56 md:pb-28 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pt-32 pb-10 md:px-10 md:pt-40 md:pb-16 lg:px-16">
         <Reveal>
           <p className="eyebrow text-gold">Contact</p>
-          <h1 className="mt-8 max-w-3xl text-[clamp(2.5rem,6vw,5rem)] leading-[1.04] text-forest">
+          <h1 className="mt-8 max-w-3xl text-[clamp(2.4rem,5.5vw,4.5rem)] leading-[0.95] text-forest drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)]">
             We would love to host you.
           </h1>
           <p className="mt-8 max-w-md text-sm leading-[1.9] font-light text-muted-foreground">
@@ -40,7 +40,7 @@ function ContactPage() {
         </Reveal>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-20 px-6 pb-28 md:grid-cols-[1fr_1.2fr] md:px-10 md:pb-40 lg:gap-32 lg:px-16">
+      <section className="mx-auto grid max-w-7xl gap-20 px-6 pb-16 md:grid-cols-[1fr_1.2fr] md:px-10 md:pb-24 lg:gap-32 lg:px-16">
         <Reveal>
           <dl className="space-y-12">
             <div>
@@ -88,13 +88,17 @@ function ContactPage() {
         </Reveal>
 
         <Reveal delay={120}>
-          <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-10" action="https://formsubmit.co/elorahomesinn@gmail.com" method="POST">
+            {/* FormSubmit configuration fields */}
+            <input type="hidden" name="_subject" value="New Enquiry from Elora Homes Website" />
+            <input type="hidden" name="_template" value="table" />
+            
             <div className="grid gap-10 sm:grid-cols-2">
               <div>
                 <label htmlFor="name" className="eyebrow text-muted-foreground">
                   Name
                 </label>
-                <input id="name" name="name" className={fieldClass} placeholder="Your name" />
+                <input id="name" name="name" required className={fieldClass} placeholder="Your name" />
               </div>
               <div>
                 <label htmlFor="email" className="eyebrow text-muted-foreground">
@@ -104,6 +108,7 @@ function ContactPage() {
                   id="email"
                   name="email"
                   type="email"
+                  required
                   className={fieldClass}
                   placeholder="you@email.com"
                 />
@@ -114,13 +119,13 @@ function ContactPage() {
                 <label htmlFor="dates" className="eyebrow text-muted-foreground">
                   Dates
                 </label>
-                <input id="dates" name="dates" className={fieldClass} placeholder="dd/mm — dd/mm" />
+                <input id="dates" name="dates" required className={fieldClass} placeholder="dd/mm — dd/mm" />
               </div>
               <div>
                 <label htmlFor="guests" className="eyebrow text-muted-foreground">
                   Guests
                 </label>
-                <input id="guests" name="guests" className={fieldClass} placeholder="2 guests" />
+                <input id="guests" name="guests" required className={fieldClass} placeholder="2 guests" />
               </div>
             </div>
             <div>
@@ -131,13 +136,14 @@ function ContactPage() {
                 id="message"
                 name="message"
                 rows={4}
+                required
                 className={`${fieldClass} resize-none`}
                 placeholder="Tell us a little about your stay"
               />
             </div>
             <ActionButton variant="forest">Send Message</ActionButton>
             <p className="text-xs font-light text-muted-foreground">
-              This form is presentational for now — please email or call us directly.
+              Your message will be sent directly to our team.
             </p>
           </form>
         </Reveal>
@@ -149,7 +155,7 @@ function ContactPage() {
           className="pointer-events-none absolute inset-0 opacity-[0.3]"
           style={{ backgroundImage: `url(${brand.textureBeige})`, backgroundSize: "560px auto" }}
         />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32 lg:px-16">
+        <div className="relative mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-16 lg:px-16">
           <p className="eyebrow text-gold">Find Us</p>
           <h2 className="mt-6 text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] text-forest">
             Bengaluru, India
