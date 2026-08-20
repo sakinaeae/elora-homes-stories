@@ -43,7 +43,6 @@ export function SiteHeader() {
               height={128}
             className={cn(
               "h-24 w-24 shrink-0 object-contain p-1 md:h-28 md:w-28",
-              !onDark && "bg-ivory",
             )}
           />
         </Link>
