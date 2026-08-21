@@ -12,13 +12,8 @@ import type { ReactNode } from "react";
 
 export const Route = createFileRoute("/stays/$slug")({
   loader: ({ params }) => {
-    console.log("LOADER CALLED WITH PARAMS:", params);
-    console.log("AVAILABLE STAYS:", stays.map(s => s.slug));
     const stay = stays.find((s) => s.slug === params.slug);
-    if (!stay) {
-      console.error("STAY NOT FOUND FOR SLUG:", params.slug);
-      throw notFound();
-    }
+    if (!stay) throw notFound();
     return stay;
   },
   head: ({ loaderData }) => ({
@@ -175,13 +170,13 @@ function StayDetail() {
                 </div>
 
                 <a 
-                  href={`https://maps.google.com/?q=${encodeURIComponent(stay.location)}`}
+                  href={stay.listingUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/20 text-forest hover:bg-forest/5"
                 >
                   <MapPin className="w-3.5 h-3.5" />
-                  View Location
+                  View Location on Airbnb
                 </a>
               </div>
             </div>
@@ -191,3 +186,6 @@ function StayDetail() {
     </>
   );
 }
+
+
+export { Route }

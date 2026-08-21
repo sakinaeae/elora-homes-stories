@@ -68,7 +68,7 @@ export function StayCard({ stay, index }: { stay: Stay; index: number }) {
 
 
         <div className="mt-10">
-          <ActionLink href={stay.listingUrl} variant="outline">
+          <ActionLink to="/stays/$slug" params={{ slug: stay.slug }} variant="outline">
             Explore Stay
           </ActionLink>
         </div>
