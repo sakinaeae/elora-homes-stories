@@ -47,23 +47,14 @@ export function ActionButton({
   className,
   children,
   type = "submit",
-  disabled,
-  onClick,
 }: {
   variant?: Variant;
   className?: string;
   children: ReactNode;
   type?: "submit" | "button";
-  disabled?: boolean;
-  onClick?: () => void;
 }) {
   return (
-    <button
-      type={type}
-      disabled={disabled}
-      onClick={onClick}
-      className={cn(base, variants[variant], disabled && "opacity-60 cursor-not-allowed", className)}
-    >
+    <button type={type} className={cn(base, variants[variant], className)}>
       {children}
     </button>
   );

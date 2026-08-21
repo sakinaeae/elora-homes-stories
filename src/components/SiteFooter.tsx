@@ -9,28 +9,23 @@ export function SiteFooter() {
         className="pointer-events-none absolute inset-0 opacity-[0.14]"
         style={{ backgroundImage: `url(${brand.textureForest})`, backgroundSize: "620px auto" }}
       />
-      <div className="relative mx-auto max-w-7xl px-6 pt-10 pb-6 md:px-10 md:pt-12 md:pb-8 lg:px-16">
-        <div className="grid gap-8 md:grid-cols-[1.2fr_1fr_1fr] md:gap-12">
-          <div className="flex flex-col items-center text-center">
+      <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32 lg:px-16">
+        <div className="grid gap-16 md:grid-cols-[1.2fr_1fr_1fr]">
+          <div>
             <img
               src={brand.logoLight}
               alt={`${brand.name} logo`}
-              width={517}
-              height={227}
+              width={240}
+              height={240}
               loading="lazy"
-              className="h-16 w-auto object-contain md:h-20"
+              className="h-28 w-28 object-contain p-2 md:h-32 md:w-32"
             />
-            <p className="mt-3 font-display text-lg font-light tracking-wide text-ivory/90">
-              Spaces Styled for Every Story.
-            </p>
-            <p className="mt-1 text-xs leading-loose font-light text-ivory/60">
-              Bengaluru, India.
-            </p>
+            <p className="mt-6 text-xs leading-loose font-light text-ivory/55">{brand.city}</p>
           </div>
 
           <div>
             <p className="eyebrow text-gold-pale">Explore</p>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-8 space-y-4">
               {navLinks.map((l) => (
                 <li key={l.to}>
                   <Link to={l.to} className="link-quiet text-sm font-light text-ivory/80 hover:text-ivory">
@@ -43,7 +38,7 @@ export function SiteFooter() {
 
           <div>
             <p className="eyebrow text-gold-pale">Enquire</p>
-            <ul className="mt-4 space-y-2.5 text-sm font-light text-ivory/80">
+            <ul className="mt-8 space-y-4 text-sm font-light text-ivory/80">
               <li>
                 <a href={`mailto:${brand.email}`} className="link-quiet hover:text-ivory">
                   {brand.email}
@@ -73,7 +68,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-8 flex justify-center border-t border-ivory/15 pt-4 text-[0.65rem] tracking-[0.18em] text-ivory/45 uppercase text-center md:mt-10 md:pt-5">
+        <div className="mt-20 flex flex-col gap-4 border-t border-ivory/15 pt-8 text-[0.65rem] tracking-[0.18em] text-ivory/45 uppercase sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {brand.name}</p>
         </div>
       </div>

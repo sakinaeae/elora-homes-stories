@@ -29,10 +29,10 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-6 pt-32 pb-10 md:px-10 md:pt-40 md:pb-16 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pt-40 pb-20 md:px-10 md:pt-56 md:pb-28 lg:px-16">
         <Reveal>
           <p className="eyebrow text-gold">About Elora</p>
-          <h1 className="mt-8 max-w-4xl text-[clamp(2.4rem,5.5vw,4.5rem)] leading-[0.95] text-forest drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)]">
+          <h1 className="mt-8 max-w-4xl text-[clamp(2.5rem,6vw,5rem)] leading-[1.04] text-forest">
             Spaces Styled for Every Story.
           </h1>
         </Reveal>
@@ -48,7 +48,7 @@ function AboutPage() {
         />
       </Reveal>
 
-      <section className="mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-16 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-40 lg:px-16">
         <div className="grid gap-16 md:grid-cols-[1fr_1.1fr] lg:gap-28">
           <Reveal>
             <p className="eyebrow text-gold">Our Mission</p>
@@ -74,7 +74,7 @@ function AboutPage() {
           className="pointer-events-none absolute inset-0 opacity-[0.12]"
           style={{ backgroundImage: `url(${brand.textureForest})`, backgroundSize: "620px auto" }}
         />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-10 md:grid-cols-2 md:px-10 md:py-16 lg:gap-28 lg:px-16">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-2 md:px-10 md:py-40 lg:gap-28 lg:px-16">
           <Reveal>
             <img
               src={detailImage}
@@ -94,7 +94,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-10 md:grid-cols-2 md:px-10 md:py-16 lg:gap-28 lg:px-16">
+      <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-2 md:px-10 md:py-40 lg:gap-28 lg:px-16">
         <div>
           <SectionHeading
             eyebrow="Photography & Detail"

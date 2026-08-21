@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as StaysRouteImport } from './routes/stays'
 import { Route as StaysIndexRouteImport } from './routes/stays.index'
 import { Route as StaysSlugRouteImport } from './routes/stays/$slug'
 
@@ -30,21 +31,27 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const StaysIndexRoute = StaysIndexRouteImport.update({
-  id: '/stays/',
-  path: '/stays/',
+const StaysRoute = StaysRouteImport.update({
+  id: '/stays',
+  path: '/stays',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StaysIndexRoute = StaysIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => StaysRoute,
+} as any)
 const StaysSlugRoute = StaysSlugRouteImport.update({
-  id: '/stays/$slug',
-  path: '/stays/$slug',
-  getParentRoute: () => rootRouteImport,
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => StaysRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/stays': typeof StaysRouteWithChildren
   '/stays/$slug': typeof StaysSlugRoute
   '/stays/': typeof StaysIndexRoute
 }
@@ -60,23 +67,30 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/stays': typeof StaysRouteWithChildren
   '/stays/$slug': typeof StaysSlugRoute
   '/stays/': typeof StaysIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/stays/$slug' | '/stays/'
+  fullPaths: '/' | '/about' | '/contact' | '/stays' | '/stays/$slug' | '/stays/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/about' | '/contact' | '/stays/$slug' | '/stays'
-  id: '__root__' | '/' | '/about' | '/contact' | '/stays/$slug' | '/stays/'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/stays'
+    | '/stays/$slug'
+    | '/stays/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  StaysSlugRoute: typeof StaysSlugRoute
-  StaysIndexRoute: typeof StaysIndexRoute
+  StaysRoute: typeof StaysRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -102,29 +116,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/stays': {
+      id: '/stays'
+      path: '/stays'
+      fullPath: '/stays'
+      preLoaderRoute: typeof StaysRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/stays/': {
       id: '/stays/'
-      path: '/stays'
+      path: '/'
       fullPath: '/stays/'
       preLoaderRoute: typeof StaysIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof StaysRoute
     }
     '/stays/$slug': {
       id: '/stays/$slug'
-      path: '/stays/$slug'
+      path: '/$slug'
       fullPath: '/stays/$slug'
       preLoaderRoute: typeof StaysSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof StaysRoute
     }
   }
 }
+
+interface StaysRouteChildren {
+  StaysSlugRoute: typeof StaysSlugRoute
+  StaysIndexRoute: typeof StaysIndexRoute
+}
+
+const StaysRouteChildren: StaysRouteChildren = {
+  StaysSlugRoute: StaysSlugRoute,
+  StaysIndexRoute: StaysIndexRoute,
+}
+
+const StaysRouteWithChildren = StaysRoute._addFileChildren(StaysRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  StaysSlugRoute: StaysSlugRoute,
-  StaysIndexRoute: StaysIndexRoute,
+  StaysRoute: StaysRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

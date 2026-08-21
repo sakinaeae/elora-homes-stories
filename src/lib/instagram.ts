@@ -1,5 +1,3 @@
-import { createServerFn } from "@tanstack/react-start";
-
 export type InstagramPost = {
   id: string;
   mediaUrl: string;
@@ -11,74 +9,28 @@ export type InstagramPost = {
 
 export const instagramProfile = "https://instagram.com/elorahomesinn";
 
-type MetaMediaItem = {
-  id: string;
-  caption?: string;
-  media_type: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
-  media_url?: string;
-  thumbnail_url?: string;
-  permalink: string;
-  timestamp: string;
-};
+const feedUrl = import.meta.env.VITE_INSTAGRAM_FEED_URL as string | undefined;
 
-// In-memory 1-hour server-side cache
-let cachedPosts: InstagramPost[] = [];
-let lastCacheTime = 0;
-const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour (3,600,000 ms)
+export async function loadInstagramPosts(): Promise<InstagramPost[]> {
+  if (!feedUrl) return [];
 
-export const getInstagramPosts = createServerFn({ method: "GET" }).handler(
-  async (): Promise<InstagramPost[]> => {
-    const now = Date.now();
+  const response = await fetch(feedUrl);
+  if (!response.ok) return [];
 
-    // 1. Return fresh cached posts if available
-    if (cachedPosts.length > 0 && now - lastCacheTime < CACHE_TTL_MS) {
-      return cachedPosts;
-    }
+  const payload: unknown = await response.json();
+  if (!Array.isArray(payload)) return [];
 
-    // 2. Read strictly server-side environment variable (Never exposed to client JS)
-    const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
-    if (!accessToken) {
-      return [];
-    }
+  return payload.filter(isInstagramPost).sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+}
 
-    try {
-      // Official Meta Instagram Graph API endpoint (v20.0)
-      const graphUrl = `https://graph.instagram.com/v20.0/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&limit=6&access_token=${encodeURIComponent(accessToken)}`;
-      const res = await fetch(graphUrl);
-
-      if (!res.ok) {
-        if (cachedPosts.length > 0) return cachedPosts;
-        return [];
-      }
-
-      const json = (await res.json()) as { data?: MetaMediaItem[] };
-      if (json.data && Array.isArray(json.data)) {
-        const posts: InstagramPost[] = json.data
-          .map((item) => ({
-            id: item.id,
-            mediaUrl:
-              item.media_type === "VIDEO" && item.thumbnail_url
-                ? item.thumbnail_url
-                : item.media_url || "",
-            permalink: item.permalink,
-            caption: item.caption,
-            mediaType: item.media_type,
-            timestamp: item.timestamp,
-          }))
-          .filter((post) => post.mediaUrl !== "");
-
-        if (posts.length > 0) {
-          cachedPosts = posts;
-          lastCacheTime = now;
-        }
-
-        return posts;
-      }
-    } catch (error) {
-      console.error("Error fetching Meta Instagram Graph API:", error);
-      if (cachedPosts.length > 0) return cachedPosts;
-    }
-
-    return [];
-  },
-);
+function isInstagramPost(value: unknown): value is InstagramPost {
+  if (!value || typeof value !== "object") return false;
+  const post = value as Record<string, unknown>;
+  return (
+    typeof post.id === "string" &&
+    typeof post.mediaUrl === "string" &&
+    typeof post.permalink === "string" &&
+    typeof post.timestamp === "string" &&
+    (post.mediaType === "IMAGE" || post.mediaType === "VIDEO" || post.mediaType === "CAROUSEL_ALBUM")
+  );
+}

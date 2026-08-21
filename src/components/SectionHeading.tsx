@@ -19,7 +19,7 @@ export function SectionHeading({
   return (
     <Reveal
       className={cn(
-        "max-w-4xl lg:max-w-5xl",
+        "max-w-2xl",
         align === "center" && "mx-auto text-center",
         className,
       )}
@@ -29,7 +29,7 @@ export function SectionHeading({
       ) : null}
       <h2
         className={cn(
-          "mt-6 text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.06] md:whitespace-nowrap",
+          "mt-6 text-[clamp(2.25rem,4.5vw,3.75rem)] leading-[1.06]",
           tone === "dark" ? "text-ivory" : "text-forest",
         )}
       >
