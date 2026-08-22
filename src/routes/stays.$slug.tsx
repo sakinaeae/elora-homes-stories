@@ -64,7 +64,7 @@ function StayDetail() {
       <section className="mx-auto max-w-7xl px-6 pb-12 md:px-10 md:pb-16 lg:px-16">
         <Reveal delay={100} className="w-full">
           <ImageCarousel 
-            images={stay.airbnbGallery || stay.gallery} 
+            images={[...stay.gallery, ...(stay.airbnbGallery || [])]} 
             alt={stay.name}
             columns={2}
             className="rounded-lg overflow-hidden"
