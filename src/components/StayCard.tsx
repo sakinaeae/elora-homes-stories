@@ -40,7 +40,7 @@ export function StayCard({ stay, index }: { stay: Stay; index: number }) {
 
       <figcaption className={cn(flipped && "md:order-1")}>
         <p className="eyebrow text-gold">{stay.subtitle} in {stay.location}</p>
-        <h3 className="mt-5 text-[clamp(2rem,3.5vw,3rem)] leading-[1.08] text-forest">{stay.name}</h3>
+        <h3 className="mt-5 text-[clamp(2rem,3vw,3.5rem)] leading-[0.95] text-forest">{stay.name}</h3>
         <p className="mt-3 text-[0.7rem] tracking-[0.16em] text-muted-foreground uppercase">
           Entire rental unit
         </p>

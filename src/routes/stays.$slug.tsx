@@ -73,11 +73,11 @@ function StayDetail() {
         </Reveal>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-28 md:px-10 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pb-16 md:px-10 md:pb-24 lg:px-16">
         <div className="grid gap-16 md:grid-cols-[1fr_380px] lg:gap-24">
           <div className="space-y-16">
             <Reveal>
-              <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] text-forest">About this space</h2>
+              <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-forest">About this space</h2>
               <p className="mt-6 max-w-2xl text-sm leading-[1.9] font-light text-muted-foreground">
                 {stay.description}
               </p>
