@@ -42,7 +42,7 @@ export function SiteHeader() {
             width={240}
             height={240}
             className={cn(
-              "h-28 w-auto shrink-0 object-contain -my-6 md:h-48 md:-my-12",
+              "h-14 w-auto shrink-0 object-contain -my-2 md:h-48 md:-my-12",
               onDark && "drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]",
             )}
           />
