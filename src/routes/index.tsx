@@ -119,12 +119,8 @@ function Home() {
         </div>
       </section>
 
-      <section className="relative bg-forest text-ivory">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.3]"
-          style={{ backgroundImage: `url(${brand.textureHousesForest})`, backgroundSize: "300px auto" }}
-        />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-[0.7fr_1.3fr] md:px-10 md:py-16 lg:px-16">
+      <section className="bg-forest text-ivory">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-[0.7fr_1.3fr] md:px-10 md:py-16 lg:px-16">
           <Reveal><p className="eyebrow text-gold-pale">Elora Homes</p></Reveal>
           <Reveal delay={120}>
             <p className="font-display text-[clamp(1.8rem,4vw,3.5rem)] leading-[1.02] font-light">
@@ -134,12 +130,8 @@ function Home() {
         </div>
       </section>
 
-      <section className="relative bg-ivory px-6 py-12 md:px-10 md:py-16 lg:px-16">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.25]"
-          style={{ backgroundImage: `url(${brand.textureHousesWhite})`, backgroundSize: "400px auto", mixBlendMode: 'multiply' }}
-        />
-        <div className="relative mx-auto max-w-7xl">
+      <section className="bg-ivory px-6 py-12 md:px-10 md:py-16 lg:px-16">
+        <div className="mx-auto max-w-7xl">
           <Reveal>
             <SectionHeading eyebrow="Featured Stays" title="Two homes, quietly considered." />
           </Reveal>
