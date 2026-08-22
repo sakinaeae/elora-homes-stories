@@ -53,7 +53,7 @@ export function ImageCarousel({
                 src={src}
                 alt={`${alt} - ${index + 1}`}
                 loading={priorityFirst && index === 0 ? "eager" : "lazy"}
-                className={cn("w-full h-full object-cover", imageClassName)}
+                className={cn("w-full h-full object-cover object-[50%_80%]", imageClassName)}
               />
             </div>
           </CarouselItem>

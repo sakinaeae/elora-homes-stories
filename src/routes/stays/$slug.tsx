@@ -186,6 +186,3 @@ function StayDetail() {
     </>
   );
 }
-
-
-export { Route }
