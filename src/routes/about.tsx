@@ -29,7 +29,7 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-6 pt-40 pb-16 md:px-10 md:pt-56 md:pb-24 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pt-32 pb-12 md:px-10 md:pt-40 md:pb-16 lg:px-16">
         <Reveal>
           <p className="eyebrow text-gold">About Elora</p>
           <h1 className="mt-8 max-w-4xl text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-forest">
@@ -48,8 +48,8 @@ function AboutPage() {
         />
       </Reveal>
 
-      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24 lg:px-16">
-        <div className="grid gap-16 md:grid-cols-[1fr_1.1fr] lg:gap-28">
+      <section className="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16 lg:px-16">
+        <div className="grid gap-12 md:grid-cols-[1fr_1.1fr] lg:gap-20">
           <Reveal>
             <p className="eyebrow text-gold">Our Mission</p>
             <div className="rule-gold mt-8" />
@@ -74,7 +74,7 @@ function AboutPage() {
           className="pointer-events-none absolute inset-0 opacity-[0.12]"
           style={{ backgroundImage: `url(${brand.textureForest})`, backgroundSize: "620px auto" }}
         />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-16 md:grid-cols-2 md:px-10 md:py-24 lg:gap-28 lg:px-16">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-10 md:py-16 lg:gap-20 lg:px-16">
           <Reveal>
             <img
               src={detailImage}
@@ -94,7 +94,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-16 md:grid-cols-2 md:px-10 md:py-24 lg:gap-28 lg:px-16">
+      <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-10 md:py-16 lg:gap-20 lg:px-16">
         <div>
           <SectionHeading
             eyebrow="Photography & Detail"

@@ -28,7 +28,7 @@ const fieldClass =
 function ContactPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-6 pt-40 pb-16 md:px-10 md:pt-56 md:pb-24 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pt-32 pb-12 md:px-10 md:pt-40 md:pb-16 lg:px-16">
         <Reveal>
           <p className="eyebrow text-gold">Contact</p>
           <h1 className="mt-8 max-w-3xl text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-forest">
@@ -40,7 +40,7 @@ function ContactPage() {
         </Reveal>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-20 px-6 pb-16 md:grid-cols-[1fr_1.2fr] md:px-10 md:pb-24 lg:gap-32 lg:px-16">
+      <section className="mx-auto grid max-w-7xl gap-16 px-6 pb-12 md:grid-cols-[1fr_1.2fr] md:px-10 md:pb-16 lg:gap-24 lg:px-16">
         <Reveal>
           <dl className="space-y-12">
             <div>
@@ -149,7 +149,7 @@ function ContactPage() {
           className="pointer-events-none absolute inset-0 opacity-[0.3]"
           style={{ backgroundImage: `url(${brand.textureBeige})`, backgroundSize: "560px auto" }}
         />
-        <div className="relative mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24 lg:px-16">
+        <div className="relative mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16 lg:px-16">
           <p className="eyebrow text-gold">Find Us</p>
           <h2 className="mt-6 text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-forest">
             Bengaluru, India

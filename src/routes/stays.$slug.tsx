@@ -46,7 +46,7 @@ function StayDetail() {
 
   return (
     <>
-      <section className="mx-auto max-w-7xl px-6 pt-40 pb-16 md:px-10 md:pt-56 md:pb-24 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pt-32 pb-12 md:px-10 md:pt-40 md:pb-16 lg:px-16">
         <Reveal>
           <p className="eyebrow text-gold flex items-center gap-2">
             <MapPin className="w-4 h-4" />
@@ -61,10 +61,10 @@ function StayDetail() {
         </Reveal>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-16 md:px-10 md:pb-24 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pb-12 md:px-10 md:pb-16 lg:px-16">
         <Reveal delay={100} className="w-full">
           <ImageCarousel 
-            images={stay.gallery} 
+            images={stay.airbnbGallery || stay.gallery} 
             alt={stay.name}
             columns={2}
             className="rounded-lg overflow-hidden"
@@ -73,7 +73,7 @@ function StayDetail() {
         </Reveal>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-16 md:px-10 md:pb-24 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pb-12 md:px-10 md:pb-16 lg:px-16">
         <div className="grid gap-16 md:grid-cols-[1fr_380px] lg:gap-24">
           <div className="space-y-16">
             <Reveal>
@@ -157,14 +157,14 @@ function StayDetail() {
                 <div className="grid grid-cols-2 gap-4">
                   <a 
                     href={`tel:${brand.phoneHref}`}
-                    className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/20 text-forest hover:bg-forest/5"
+                    className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     Call
                   </a>
                   <a 
                     href={`mailto:${brand.email}?subject=Inquiry about ${stay.name}`}
-                    className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/20 text-forest hover:bg-forest/5"
+                    className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
                   >
                     <Mail className="w-3.5 h-3.5" />
                     Email
@@ -175,7 +175,7 @@ function StayDetail() {
                   href={stay.listingUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/20 text-forest hover:bg-forest/5"
+                  className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
                 >
                   <MapPin className="w-3.5 h-3.5" />
                   View Location on Airbnb
