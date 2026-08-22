@@ -53,66 +53,8 @@ function ContactPage() {
         </Reveal>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-16 px-6 pb-12 md:grid-cols-[1fr_1.2fr] md:px-10 md:pb-16 lg:gap-24 lg:px-16">
-        <Reveal>
-          <dl className="space-y-12">
-            <div>
-              <dt className="flex items-center gap-3 eyebrow text-muted-foreground">
-                <Mail className="w-4 h-4 text-gold" />
-                Email
-              </dt>
-              <dd className="mt-4">
-                <a
-                  href={`mailto:${brand.email}`}
-                  className="link-quiet font-display text-2xl font-light text-forest md:text-3xl"
-                >
-                  {brand.email}
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="flex items-center gap-3 eyebrow text-muted-foreground">
-                <Phone className="w-4 h-4 text-gold" />
-                Phone
-              </dt>
-              <dd className="mt-4">
-                <a
-                  href={`tel:${brand.phoneHref}`}
-                  className="link-quiet font-display text-2xl font-light text-forest md:text-3xl"
-                >
-                  {brand.phone}
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="flex items-center gap-3 eyebrow text-muted-foreground">
-                <Instagram className="w-4 h-4 text-gold" />
-                Instagram
-              </dt>
-              <dd className="mt-4">
-                <a
-                  href={brand.instagramUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="link-quiet font-display text-2xl font-light text-forest md:text-3xl"
-                >
-                  {brand.instagram}
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="flex items-center gap-3 eyebrow text-muted-foreground">
-                <MapPin className="w-4 h-4 text-gold" />
-                Location
-              </dt>
-              <dd className="mt-4 font-display text-2xl font-light text-forest md:text-3xl">
-                {brand.city}
-              </dd>
-            </div>
-          </dl>
-        </Reveal>
-
-        <Reveal delay={120}>
+      <section className="mx-auto grid max-w-7xl gap-16 px-6 pb-12 md:grid-cols-[1.2fr_1fr] md:px-10 md:pb-16 lg:gap-24 lg:px-16">
+        <Reveal delay={120} className="order-2 md:order-1">
           <form className="space-y-10" onSubmit={handleSubmit}>
             <div className="grid gap-10 sm:grid-cols-2">
               <div>
@@ -174,8 +116,68 @@ function ContactPage() {
                 placeholder="Tell us a little about your stay"
               />
             </div>
-            <ActionButton variant="forest">Send Message</ActionButton>
+            <ActionButton variant="forest" disabled={submitting}>
+              {submitting ? "Sending…" : "Send Message"}
+            </ActionButton>
           </form>
+        </Reveal>
+
+        <Reveal className="order-1 md:order-2">
+          <dl className="space-y-12">
+            <div>
+              <dt className="flex items-center gap-3 eyebrow text-muted-foreground">
+                <Mail className="w-4 h-4 text-gold" />
+                Email
+              </dt>
+              <dd className="mt-4">
+                <a
+                  href={`mailto:${brand.email}`}
+                  className="link-quiet font-display text-2xl font-light text-forest md:text-3xl"
+                >
+                  {brand.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="flex items-center gap-3 eyebrow text-muted-foreground">
+                <Phone className="w-4 h-4 text-gold" />
+                Phone
+              </dt>
+              <dd className="mt-4">
+                <a
+                  href={`tel:${brand.phoneHref}`}
+                  className="link-quiet font-display text-2xl font-light text-forest md:text-3xl"
+                >
+                  {brand.phone}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="flex items-center gap-3 eyebrow text-muted-foreground">
+                <Instagram className="w-4 h-4 text-gold" />
+                Instagram
+              </dt>
+              <dd className="mt-4">
+                <a
+                  href={brand.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-quiet font-display text-2xl font-light text-forest md:text-3xl"
+                >
+                  {brand.instagram}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="flex items-center gap-3 eyebrow text-muted-foreground">
+                <MapPin className="w-4 h-4 text-gold" />
+                Location
+              </dt>
+              <dd className="mt-4 font-display text-2xl font-light text-forest md:text-3xl">
+                {brand.city}
+              </dd>
+            </div>
+          </dl>
         </Reveal>
       </section>
 

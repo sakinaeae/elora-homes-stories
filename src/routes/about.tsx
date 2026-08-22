@@ -49,21 +49,14 @@ function AboutPage() {
             muted
             loop
             playsInline
-            className="h-[60vh] w-full object-cover md:h-[85vh]"
+            className="mx-auto h-auto max-h-[85vh] w-full object-contain"
           />
         </Reveal>
       </section>
 
       {/* 2. THE ELORA STORY (Editorial Asymmetrical) */}
       <section className="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16 lg:px-16">
-        <div className="grid gap-12 md:grid-cols-[1fr_1.5fr] lg:gap-24 items-start">
-          <Reveal>
-            <img 
-              src={detailImage} 
-              alt="Linen and brass detail" 
-              className="aspect-[4/5] w-full object-cover" 
-            />
-          </Reveal>
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr] lg:gap-24 items-start">
           <div className="md:pt-16 lg:pt-20">
             <Reveal delay={100}>
               <p className="eyebrow text-gold">The Elora Story</p>
@@ -81,6 +74,13 @@ function AboutPage() {
               </div>
             </Reveal>
           </div>
+          <Reveal>
+            <img 
+              src={detailImage} 
+              alt="Linen and brass detail" 
+              className="aspect-[4/5] w-full object-cover" 
+            />
+          </Reveal>
         </div>
       </section>
 

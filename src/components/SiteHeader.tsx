@@ -42,7 +42,7 @@ export function SiteHeader() {
             width={240}
             height={240}
             className={cn(
-              "h-40 w-auto shrink-0 object-contain -my-10 md:h-48 md:-my-12",
+              "h-28 w-auto shrink-0 object-contain -my-6 md:h-48 md:-my-12",
               onDark && "drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]",
             )}
           />
@@ -88,9 +88,6 @@ export function SiteHeader() {
               {l.label}
             </Link>
           ))}
-          <a href={`mailto:${brand.email}`} className="eyebrow mt-4 text-gold-pale">
-            {brand.email}
-          </a>
         </nav>
       </div>
     </header>
