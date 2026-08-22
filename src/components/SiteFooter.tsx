@@ -82,7 +82,7 @@ export function SiteFooter() {
       </div>
 
       {/* Full-width "Made by Sakitopia" bar — outside padded container, edge-to-edge */}
-      <div className="relative w-full border-t border-ivory/10 bg-black/30 py-3 text-center text-[0.7rem] tracking-[0.2em] text-ivory/50 uppercase">
+      <div className="relative w-full border-t border-ivory/10 bg-black/30 py-1.5 text-center text-[0.7rem] tracking-[0.2em] text-ivory/50 uppercase">
         MADE BY{" "}
         <a
           href="https://www.instagram.com/sakitopia/"
