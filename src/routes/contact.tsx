@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { ActionButton } from "@/components/ActionLink";
 import { brand } from "@/lib/brand";
 import { Mail, Phone, Instagram, MapPin } from "lucide-react";
 import { stays } from "@/data/stays";
+import { sendEnquiry, type EnquiryInput } from "@/lib/send-enquiry";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -28,16 +30,32 @@ const fieldClass =
   "w-full border-b border-border bg-transparent py-4 text-sm font-light text-foreground placeholder:text-muted-foreground/70 focus:border-gold focus:outline-none transition-colors duration-500";
 
 function ContactPage() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    
-    const subject = encodeURIComponent(`Inquiry for ${data.stay}`);
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nEmail: ${data.email}\nDates: ${data.dates}\nGuests: ${data.guests}\nStay: ${data.stay}\n\nMessage:\n${data.message}`
-    );
-    window.location.href = `mailto:${brand.email}?subject=${subject}&body=${body}`;
+    if (submitting) return;
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries()) as unknown as EnquiryInput;
+
+    setSubmitting(true);
+    setStatus("idle");
+    setErrorMessage("");
+    try {
+      await sendEnquiry({ data });
+      setStatus("success");
+      form.reset();
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(
+        err instanceof Error ? err.message : "Something went wrong. Please email us directly.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -116,9 +134,25 @@ function ContactPage() {
                 placeholder="Tell us a little about your stay"
               />
             </div>
-            <ActionButton variant="forest" disabled={submitting}>
-              {submitting ? "Sending…" : "Send Message"}
-            </ActionButton>
+            <div className="flex flex-col gap-4">
+              <ActionButton variant="forest" disabled={submitting}>
+                {submitting ? "Sending…" : "Send Message"}
+              </ActionButton>
+              {status === "success" && (
+                <p role="status" className="text-sm font-light text-forest">
+                  Thank you — your enquiry is on its way. We usually reply within the day.
+                </p>
+              )}
+              {status === "error" && (
+                <p role="alert" className="text-sm font-light text-red-700">
+                  {errorMessage}{" "}
+                  <a href={`mailto:${brand.email}`} className="underline">
+                    Email us directly
+                  </a>
+                  .
+                </p>
+              )}
+            </div>
           </form>
         </Reveal>
 
