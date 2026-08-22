@@ -15,6 +15,9 @@ export const brand = {
   logoLight: "/elora-homes-white-logo.png",
   textureBeige: textureBeige.url,
   textureForest: textureForest.url,
+  textureHousesBeige: "/texture-houses-beige.png",
+  textureHousesForest: "/texture-houses-forest.png",
+  textureHousesWhite: "/texture-houses-white.png",
 };
 
 export const navLinks = [

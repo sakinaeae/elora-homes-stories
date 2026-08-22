@@ -146,8 +146,8 @@ function ContactPage() {
       <section className="relative overflow-hidden bg-beige">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.3]"
-          style={{ backgroundImage: `url(${brand.textureBeige})`, backgroundSize: "560px auto" }}
+          className="pointer-events-none absolute inset-0 opacity-[0.25]"
+          style={{ backgroundImage: `url(${brand.textureHousesBeige})`, backgroundSize: "300px auto", mixBlendMode: 'multiply' }}
         />
         <div className="relative mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16 lg:px-16">
           <p className="eyebrow text-gold">Find Us</p>

@@ -124,62 +124,68 @@ function StayDetail() {
           </div>
 
           <div className="relative">
-            <div className="sticky top-32 space-y-8 bg-beige/30 border border-forest/15 p-8 md:p-10">
-              <div>
-                <p className="font-display text-2xl text-forest">Ready to book?</p>
-                <p className="mt-3 text-xs leading-[1.8] font-light text-muted-foreground">
-                  Check live availability and book your stay securely on Airbnb. 
-                  Or reach out directly for special requests.
-                </p>
-              </div>
-              
-              <div className="space-y-4">
-                <a 
-                  href={stay.listingUrl} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="w-full group inline-flex items-center justify-center gap-3 border px-8 py-4 text-xs tracking-widest uppercase transition-colors duration-500 border-forest bg-forest text-ivory hover:bg-espresso hover:border-espresso"
-                >
-                  <Calendar className="w-4 h-4" />
-                  Book on Airbnb
-                </a>
+            <div className="sticky top-32 relative overflow-hidden bg-beige/30 border border-forest/15 p-8 md:p-10">
+              <div
+                className="pointer-events-none absolute inset-0 opacity-[0.25]"
+                style={{ backgroundImage: `url(${brand.textureHousesBeige})`, backgroundSize: "300px auto", mixBlendMode: 'multiply' }}
+              />
+              <div className="relative space-y-8">
+                <div>
+                  <p className="font-display text-2xl text-forest">Ready to book?</p>
+                  <p className="mt-3 text-xs leading-[1.8] font-light text-muted-foreground">
+                    Check live availability and book your stay securely on Airbnb. 
+                    Or reach out directly for special requests.
+                  </p>
+                </div>
                 
-                <a 
-                  href={whatsappLink} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="w-full group inline-flex items-center justify-center gap-3 border px-8 py-4 text-xs tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  WhatsApp Us
-                </a>
-
-                <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
                   <a 
-                    href={`tel:${brand.phoneHref}`}
-                    className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
+                    href={stay.listingUrl} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="w-full group inline-flex items-center justify-center gap-3 border px-8 py-4 text-xs tracking-widest uppercase transition-colors duration-500 border-forest bg-forest text-ivory hover:bg-espresso hover:border-espresso"
                   >
-                    <Phone className="w-3.5 h-3.5" />
-                    Call
+                    <Calendar className="w-4 h-4" />
+                    Book on Airbnb
                   </a>
+                  
                   <a 
-                    href={`mailto:${brand.email}?subject=Inquiry about ${stay.name}`}
+                    href={whatsappLink} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="w-full group inline-flex items-center justify-center gap-3 border px-8 py-4 text-xs tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    WhatsApp Us
+                  </a>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <a 
+                      href={`tel:${brand.phoneHref}`}
+                      className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
+                    >
+                      <Phone className="w-3.5 h-3.5" />
+                      Call
+                    </a>
+                    <a 
+                      href={`mailto:${brand.email}?subject=Inquiry about ${stay.name}`}
+                      className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
+                    >
+                      <Mail className="w-3.5 h-3.5" />
+                      Email
+                    </a>
+                  </div>
+
+                  <a 
+                    href="https://maps.app.goo.gl/dEqCJhR6dsMpKXXg8?g_st=ic"
+                    target="_blank"
+                    rel="noreferrer"
                     className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
                   >
-                    <Mail className="w-3.5 h-3.5" />
-                    Email
+                    <MapPin className="w-3.5 h-3.5" />
+                    View Location on Maps
                   </a>
                 </div>
-
-                <a 
-                  href="https://maps.app.goo.gl/dEqCJhR6dsMpKXXg8?g_st=ic"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
-                >
-                  <MapPin className="w-3.5 h-3.5" />
-                  View Location on Maps
-                </a>
               </div>
             </div>
           </div>

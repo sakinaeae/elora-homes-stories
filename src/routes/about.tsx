@@ -71,8 +71,8 @@ function AboutPage() {
       <section className="relative overflow-hidden bg-forest">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.12]"
-          style={{ backgroundImage: `url(${brand.textureForest})`, backgroundSize: "620px auto" }}
+          className="pointer-events-none absolute inset-0 opacity-[0.15]"
+          style={{ backgroundImage: `url(${brand.textureHousesForest})`, backgroundSize: "300px auto" }}
         />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-10 md:py-16 lg:gap-20 lg:px-16">
           <Reveal>
