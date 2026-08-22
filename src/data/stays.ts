@@ -64,7 +64,6 @@ export const stays: Stay[] = [
       "Lift",
       "Washing machine",
       "Bath",
-      "Hairdryer",
     ],
     houseRules: ["Check-in after 2:00 pm", "Checkout before 11:00 am", "5 guests maximum"],
     image: cozyCornerImages[0]!,
