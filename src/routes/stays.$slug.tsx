@@ -52,7 +52,7 @@ function StayDetail() {
             <MapPin className="w-4 h-4" />
             {stay.location}
           </p>
-          <h1 className="mt-6 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.9] text-forest drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)]">
+          <h1 className="mt-6 max-w-4xl text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-forest drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)]">
             {stay.name}
           </h1>
           <p className="mt-4 text-sm tracking-[0.16em] text-muted-foreground uppercase">

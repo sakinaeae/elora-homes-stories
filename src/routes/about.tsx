@@ -32,7 +32,7 @@ function AboutPage() {
       <section className="mx-auto max-w-7xl px-6 pt-40 pb-16 md:px-10 md:pt-56 md:pb-24 lg:px-16">
         <Reveal>
           <p className="eyebrow text-gold">About Elora</p>
-          <h1 className="mt-8 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.9] text-forest">
+          <h1 className="mt-8 max-w-4xl text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-forest">
             Spaces Styled for Every Story.
           </h1>
         </Reveal>
