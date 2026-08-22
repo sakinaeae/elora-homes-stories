@@ -172,13 +172,13 @@ function StayDetail() {
                 </div>
 
                 <a 
-                  href={stay.listingUrl}
+                  href="https://maps.app.goo.gl/dEqCJhR6dsMpKXXg8?g_st=ic"
                   target="_blank"
                   rel="noreferrer"
                   className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
                 >
                   <MapPin className="w-3.5 h-3.5" />
-                  View Location on Airbnb
+                  View Location
                 </a>
               </div>
             </div>
