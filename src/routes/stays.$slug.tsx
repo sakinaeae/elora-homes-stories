@@ -178,7 +178,7 @@ function StayDetail() {
                   className="w-full group inline-flex items-center justify-center gap-2 border px-4 py-4 text-[0.65rem] tracking-widest uppercase transition-colors duration-500 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
                 >
                   <MapPin className="w-3.5 h-3.5" />
-                  View Location
+                  View Location on Maps
                 </a>
               </div>
             </div>
