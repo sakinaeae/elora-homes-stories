@@ -7,7 +7,7 @@ export function SiteFooter() {
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.25]"
-        style={{ backgroundImage: `url(${brand.textureHousesForest})`, backgroundSize: "300px auto" }}
+        style={{ backgroundImage: `url(${brand.textureHousesForest})`, backgroundSize: "600px auto" }}
       />
       <div className="relative mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16 lg:px-16">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
