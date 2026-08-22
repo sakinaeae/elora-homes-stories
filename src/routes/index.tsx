@@ -120,7 +120,7 @@ function Home() {
       </section>
 
       <section className="bg-forest text-ivory">
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-16 md:grid-cols-[0.7fr_1.3fr] md:px-10 md:py-24 lg:px-16">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-[0.7fr_1.3fr] md:px-10 md:py-16 lg:px-16">
           <Reveal><p className="eyebrow text-gold-pale">Elora Homes</p></Reveal>
           <Reveal delay={120}>
             <p className="font-display text-[clamp(1.8rem,4vw,3.5rem)] leading-[1.02] font-light">
@@ -130,12 +130,12 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-ivory px-6 py-16 md:px-10 md:py-24 lg:px-16">
+      <section className="bg-ivory px-6 py-12 md:px-10 md:py-16 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <SectionHeading eyebrow="Featured Stays" title="Two homes, quietly considered." />
           </Reveal>
-          <div className="mt-16 grid gap-8 md:grid-cols-2 md:gap-10">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 md:gap-8">
             {[{ stay: stays[0]!, image: stayOne, number: "01" }, { stay: stays[1]!, image: stayTwo, number: "02" }].map(({ stay, image, number }, i) => (
               <article key={stay.slug} className="group relative overflow-hidden bg-espresso aspect-[3/4]">
                 <div className="absolute inset-0 h-full w-full">
@@ -164,7 +164,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-espresso px-6 py-16 md:px-10 md:py-24 lg:px-16">
+      <section className="bg-espresso px-6 py-12 md:px-10 md:py-16 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <div className="mb-14"><p className="eyebrow text-gold-pale">Inside Elora</p><h2 className="mt-5 max-w-2xl text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-ivory">A collection of quiet moments.</h2></div>
@@ -190,7 +190,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-ivory px-6 py-16 md:px-10 md:py-24 lg:px-16">
+      <section className="bg-ivory px-6 py-12 md:px-10 md:py-16 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <Reveal><SectionHeading eyebrow="Instagram" title="@elorahomesinn" intro="Follow the homes, the details and the moments between stays." align="center" /></Reveal>
           {instagramPosts.length > 0 ? (
