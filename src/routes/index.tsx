@@ -5,7 +5,6 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { ActionLink } from "@/components/ActionLink";
 import { ImageCarousel } from "@/components/ImageCarousel";
 import { brand } from "@/lib/brand";
-import { loadInstagramPosts, type InstagramPost } from "@/lib/instagram";
 import { stays } from "@/data/stays";
 const heroImage = "/heroo.jpg";
 import stayOne from "@/assets/cozy-corner-1.jpg";
@@ -56,7 +55,6 @@ const storyImages = [
 
 function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -70,18 +68,12 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    let cancelled = false;
-    void loadInstagramPosts()
-      .then((posts) => {
-        if (!cancelled) setInstagramPosts(posts);
-      })
-      .catch(() => {
-        if (!cancelled) setInstagramPosts([]);
-      });
-
-    return () => {
-      cancelled = true;
-    };
+    const src = "https://widgets.sociablekit.com/instagram-feed/widget.js";
+    if (document.querySelector(`script[src="${src}"]`)) return;
+    const script = document.createElement("script");
+    script.src = src;
+    script.defer = true;
+    document.body.appendChild(script);
   }, []);
 
   return (
@@ -192,23 +184,10 @@ function Home() {
 
       <section className="bg-ivory px-6 py-12 md:px-10 md:py-16 lg:px-16">
         <div className="mx-auto max-w-7xl">
-          <Reveal><SectionHeading eyebrow="Instagram" title="@elorahomesinn" intro="Follow the homes, the details and the moments between stays." align="center" /></Reveal>
-          {instagramPosts.length > 0 ? (
-            <div className="mt-16 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
-              {instagramPosts.map((post) => (
-                <Reveal key={post.id} className="overflow-hidden">
-                  <a href={post.permalink} target="_blank" rel="noreferrer" aria-label="Open this Elora Homes Instagram post">
-                    <img src={post.mediaUrl} alt={post.caption ?? "Elora Homes Instagram post"} width={1200} height={1200} loading="lazy" className="aspect-square w-full object-cover transition-transform duration-[1200ms] ease-out hover:scale-[1.04]" />
-                  </a>
-                </Reveal>
-              ))}
-            </div>
-          ) : (
-            <Reveal className="mx-auto mt-16 max-w-xl border border-forest/15 px-8 py-12 text-center">
-              <p className="text-sm leading-[1.9] font-light text-muted-foreground">New Elora Homes moments will appear here as soon as the Instagram connection is enabled.</p>
-            </Reveal>
-          )}
-          <Reveal className="mt-12 text-center"><ActionLink href={brand.instagramUrl} variant="outline">Visit @elorahomesinn</ActionLink></Reveal>
+          <Reveal className="text-center"><ActionLink href={brand.instagramUrl} variant="forest">Visit @elorahomesinn</ActionLink></Reveal>
+          <Reveal className="mt-12">
+            <div className="sk-instagram-feed" data-embed-id="25707528" />
+          </Reveal>
         </div>
       </section>
     </>
