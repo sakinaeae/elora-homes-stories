@@ -28,10 +28,10 @@ const fieldClass =
 function ContactPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-6 pt-40 pb-20 md:px-10 md:pt-56 md:pb-28 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pt-40 pb-16 md:px-10 md:pt-56 md:pb-24 lg:px-16">
         <Reveal>
           <p className="eyebrow text-gold">Contact</p>
-          <h1 className="mt-8 max-w-3xl text-[clamp(2.5rem,6vw,5rem)] leading-[1.04] text-forest">
+          <h1 className="mt-8 max-w-3xl text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.9] text-forest">
             We would love to host you.
           </h1>
           <p className="mt-8 max-w-md text-sm leading-[1.9] font-light text-muted-foreground">
@@ -40,7 +40,7 @@ function ContactPage() {
         </Reveal>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-20 px-6 pb-28 md:grid-cols-[1fr_1.2fr] md:px-10 md:pb-40 lg:gap-32 lg:px-16">
+      <section className="mx-auto grid max-w-7xl gap-20 px-6 pb-16 md:grid-cols-[1fr_1.2fr] md:px-10 md:pb-24 lg:gap-32 lg:px-16">
         <Reveal>
           <dl className="space-y-12">
             <div>
@@ -149,9 +149,9 @@ function ContactPage() {
           className="pointer-events-none absolute inset-0 opacity-[0.3]"
           style={{ backgroundImage: `url(${brand.textureBeige})`, backgroundSize: "560px auto" }}
         />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32 lg:px-16">
+        <div className="relative mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24 lg:px-16">
           <p className="eyebrow text-gold">Find Us</p>
-          <h2 className="mt-6 text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] text-forest">
+          <h2 className="mt-6 text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-forest">
             Bengaluru, India
           </h2>
           <div className="mt-12 flex aspect-16/9 w-full items-center justify-center border border-forest/15 bg-ivory/70 md:aspect-21/9">

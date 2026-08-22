@@ -29,10 +29,10 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-6 pt-40 pb-20 md:px-10 md:pt-56 md:pb-28 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pt-40 pb-16 md:px-10 md:pt-56 md:pb-24 lg:px-16">
         <Reveal>
           <p className="eyebrow text-gold">About Elora</p>
-          <h1 className="mt-8 max-w-4xl text-[clamp(2.5rem,6vw,5rem)] leading-[1.04] text-forest">
+          <h1 className="mt-8 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.9] text-forest">
             Spaces Styled for Every Story.
           </h1>
         </Reveal>
@@ -48,14 +48,14 @@ function AboutPage() {
         />
       </Reveal>
 
-      <section className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-40 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24 lg:px-16">
         <div className="grid gap-16 md:grid-cols-[1fr_1.1fr] lg:gap-28">
           <Reveal>
             <p className="eyebrow text-gold">Our Mission</p>
             <div className="rule-gold mt-8" />
           </Reveal>
           <Reveal delay={120}>
-            <p className="font-display text-[clamp(1.75rem,3vw,2.75rem)] leading-[1.28] font-light text-forest">
+            <p className="font-display text-[clamp(1.8rem,4vw,3.5rem)] leading-[1.02] font-light text-forest">
               To create short-stay experiences that feel genuinely personal — spaces where travellers
               arrive as guests and leave as friends.
             </p>
@@ -74,7 +74,7 @@ function AboutPage() {
           className="pointer-events-none absolute inset-0 opacity-[0.12]"
           style={{ backgroundImage: `url(${brand.textureForest})`, backgroundSize: "620px auto" }}
         />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-2 md:px-10 md:py-40 lg:gap-28 lg:px-16">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-16 md:grid-cols-2 md:px-10 md:py-24 lg:gap-28 lg:px-16">
           <Reveal>
             <img
               src={detailImage}
@@ -94,7 +94,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-2 md:px-10 md:py-40 lg:gap-28 lg:px-16">
+      <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-16 md:grid-cols-2 md:px-10 md:py-24 lg:gap-28 lg:px-16">
         <div>
           <SectionHeading
             eyebrow="Photography & Detail"

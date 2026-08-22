@@ -14,7 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as StaysRouteImport } from './routes/stays'
 import { Route as StaysIndexRouteImport } from './routes/stays.index'
-import { Route as StaysSlugRouteImport } from './routes/stays/$slug'
+import { Route as StaysSlugRouteImport } from './routes/stays.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',

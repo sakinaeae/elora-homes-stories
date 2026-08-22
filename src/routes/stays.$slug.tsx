@@ -46,13 +46,13 @@ function StayDetail() {
 
   return (
     <>
-      <section className="mx-auto max-w-7xl px-6 pt-32 pb-10 md:px-10 md:pt-40 md:pb-16 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pt-40 pb-16 md:px-10 md:pt-56 md:pb-24 lg:px-16">
         <Reveal>
           <p className="eyebrow text-gold flex items-center gap-2">
             <MapPin className="w-4 h-4" />
             {stay.location}
           </p>
-          <h1 className="mt-6 max-w-4xl text-[clamp(2.4rem,5.5vw,4.5rem)] leading-[0.95] text-forest drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)]">
+          <h1 className="mt-6 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.9] text-forest drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)]">
             {stay.name}
           </h1>
           <p className="mt-4 text-sm tracking-[0.16em] text-muted-foreground uppercase">
@@ -66,7 +66,9 @@ function StayDetail() {
           <ImageCarousel 
             images={stay.gallery} 
             alt={stay.name}
-            className="rounded-lg overflow-hidden h-[40vh] md:h-[65vh]"
+            columns={2}
+            className="rounded-lg overflow-hidden"
+            imageClassName="aspect-[3/4]"
           />
         </Reveal>
       </section>

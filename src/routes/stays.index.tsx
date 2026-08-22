@@ -25,7 +25,7 @@ export const Route = createFileRoute("/stays/")({
 function StaysPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-6 pt-32 pb-10 md:px-10 md:pt-40 md:pb-16 lg:px-16">
+      <section className="mx-auto max-w-7xl px-6 pt-40 pb-16 md:px-10 md:pt-56 md:pb-24 lg:px-16">
         <SectionHeading
           eyebrow="The Collection"
           title="Two residences in Bengaluru."

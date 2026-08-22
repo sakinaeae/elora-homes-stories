@@ -29,7 +29,7 @@ export function SectionHeading({
       ) : null}
       <h2
         className={cn(
-          "mt-6 text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.06]",
+          "mt-6 text-[clamp(2rem,4vw,3.5rem)] leading-[0.95]",
           tone === "dark" ? "text-ivory" : "text-forest",
         )}
       >

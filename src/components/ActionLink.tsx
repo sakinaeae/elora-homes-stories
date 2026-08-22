@@ -20,23 +20,25 @@ export function ActionLink({
   variant = "outline",
   className,
   children,
+  ...rest
 }: {
   to?: string;
   href?: string;
   variant?: Variant;
   className?: string;
   children: ReactNode;
+  [key: string]: any;
 }) {
   const cls = cn(base, variants[variant], className);
   if (to) {
     return (
-      <Link to={to} className={cls}>
+      <Link to={to} className={cls} {...rest}>
         {children}
       </Link>
     );
   }
   return (
-    <a href={href} target={href?.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className={cls}>
+    <a href={href} target={href?.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className={cls} {...rest}>
       {children}
     </a>
   );

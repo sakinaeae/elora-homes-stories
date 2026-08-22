@@ -15,12 +15,14 @@ export function ImageCarousel({
   className,
   imageClassName,
   priorityFirst = false,
+  columns = 1,
 }: {
   images: string[];
   alt?: string;
   className?: string;
   imageClassName?: string;
   priorityFirst?: boolean;
+  columns?: 1 | 2;
 }) {
   const [api, setApi] = useState<CarouselApi>();
 
@@ -45,9 +47,9 @@ export function ImageCarousel({
       }}
       className={cn("w-full group", className)}
     >
-      <CarouselContent className="-ml-0">
+      <CarouselContent className={cn(columns === 2 ? "-ml-4" : "-ml-0")}>
         {images.map((src, index) => (
-          <CarouselItem key={src} className="pl-0 min-w-0 shrink-0 grow-0 basis-full h-full">
+          <CarouselItem key={src} className={cn("min-w-0 shrink-0 grow-0 h-full", columns === 2 ? "pl-4 basis-full md:basis-1/2" : "pl-0 basis-full")}>
             <div className="relative w-full h-full">
               <img
                 src={src}
