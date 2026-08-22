@@ -82,7 +82,7 @@ export function SiteHeader() {
           open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
         )}
       >
-        <nav className="flex flex-col gap-6 px-6 pt-10 pb-12">
+        <nav className="flex min-h-0 flex-col gap-6 px-6 pt-10 pb-12">
           {navLinks.map((l) => (
             <Link key={l.to} to={l.to} className="font-display text-3xl font-light text-ivory">
               {l.label}
