@@ -7,7 +7,7 @@ import { ImageCarousel } from "@/components/ImageCarousel";
 import { brand } from "@/lib/brand";
 import { loadInstagramPosts, type InstagramPost } from "@/lib/instagram";
 import { stays } from "@/data/stays";
-import heroImage from "@/assets/hero.jpg";
+const heroImage = "/heroo.jpg";
 import stayOne from "@/assets/cozy-corner-1.jpg";
 import stayTwo from "@/assets/golden-hour-1.jpg";
 import galleryBed from "@/assets/gallery-bed.jpg";

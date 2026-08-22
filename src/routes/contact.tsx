@@ -179,28 +179,7 @@ function ContactPage() {
         </Reveal>
       </section>
 
-      <section className="relative overflow-hidden bg-beige">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.3]"
-          style={{ backgroundImage: `url(${brand.textureBeige})`, backgroundSize: "560px auto" }}
-        />
-        <div className="relative mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16 lg:px-16">
-          <p className="eyebrow text-gold">Find Us</p>
-          <h2 className="mt-6 text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-forest">
-            Bengaluru, India
-          </h2>
-          <div className="mt-12 flex aspect-16/9 w-full items-center justify-center border border-forest/15 bg-ivory/70 md:aspect-21/9">
-            <div className="text-center">
-              <div className="rule-gold mx-auto" />
-              <p className="eyebrow mt-6 text-forest/70">Map placeholder</p>
-              <p className="mt-3 text-xs font-light text-muted-foreground">
-                Exact location shared on confirmed stays.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </>
   );
 }
